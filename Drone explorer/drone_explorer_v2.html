@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF Twin — Component Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#273A47; --navy-dark:#1a2730; --navy-deep:#0e1921; --navy-panel:#111d27;
+  --orange:#E94E26; --blue:#359FD9; --muted:#6B92AD;
+  --border:rgba(53,159,217,0.12); --border-str:rgba(53,159,217,0.25);
+  --text:rgba(255,255,255,0.88);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--navy-deep);color:var(--text);font-family:'Roboto',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+
+/* HEADER */
+header{display:flex;align-items:center;justify-content:space-between;padding:13px 32px;border-bottom:1px solid var(--border);background:rgba(14,25,33,0.95);flex-shrink:0;z-index:10;}
+.logo{display:flex;align-items:baseline;gap:10px;}
+.logo-ff{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:white;}
+.logo-twin{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--orange);}
+.logo-sep{width:1px;height:18px;background:var(--border-str);margin:0 4px;}
+.header-title{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.phase-badge{font-family:'JetBrains Mono',monospace;font-size:10px;padding:4px 10px;border-radius:3px;letter-spacing:1px;text-transform:uppercase;background:rgba(233,78,38,0.15);color:var(--orange);border:1px solid rgba(233,78,38,0.3);}
+
+/* MAIN */
+main{display:flex;flex:1;overflow:hidden;}
+
+/* LEFT PANEL */
+.drone-panel{flex:0 0 55%;display:flex;flex-direction:column;background:var(--navy-deep);border-right:1px solid var(--border);}
+
+.vehicle-switcher{display:flex;align-items:center;gap:6px;padding:9px 18px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.vehicle-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-right:4px;white-space:nowrap;}
+.vehicle-btn{font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:5px 12px;border-radius:3px;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--muted);cursor:pointer;letter-spacing:0.5px;text-transform:uppercase;transition:all 0.15s;}
+.vehicle-btn:hover{border-color:var(--border-str);color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.06);}
+.vehicle-btn.active{background:rgba(233,78,38,0.15);border-color:rgba(233,78,38,0.5);color:var(--orange);}
+
+/* VIEWS COLUMN — stacked top + perspective */
+.views-column{flex:1;position:relative;overflow:hidden;}
+.vehicle-views{position:absolute;inset:0;display:flex;flex-direction:column;}
+.vehicle-views.hidden{display:none;}
+
+.view-segment{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:6px 14px 4px;}
+.view-segment.top-view{border-bottom:1px solid var(--border);}
+.view-label{position:absolute;top:6px;left:14px;font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(107,146,173,0.4);letter-spacing:1.5px;text-transform:uppercase;}
+
+.svg-wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.svg-wrap svg{max-width:100%;max-height:100%;cursor:pointer;}
+
+/* TOOLTIP */
+.svg-tooltip{position:fixed;background:rgba(14,25,33,0.96);border:1px solid rgba(233,78,38,0.5);color:var(--orange);font-family:'JetBrains Mono',monospace;font-size:10px;padding:4px 10px;border-radius:3px;letter-spacing:1px;text-transform:uppercase;pointer-events:none;opacity:0;transition:opacity 0.1s;z-index:100;white-space:nowrap;}
+.svg-tooltip.visible{opacity:1;}
+
+/* SVG ELEMENT BASE STYLES — top view */
+.prop-circle{fill:rgba(53,159,217,0.06);stroke:rgba(53,159,217,0.2);stroke-width:1;stroke-dasharray:5,4;transition:all 0.25s ease;}
+.prop-blade{stroke:rgba(53,159,217,0.25);stroke-width:1.5;stroke-linecap:round;transition:all 0.25s ease;}
+.motor-ring{fill:var(--navy);stroke:rgba(53,159,217,0.4);stroke-width:1.5;transition:all 0.25s ease;}
+.motor-inner{fill:#162535;stroke:rgba(53,159,217,0.25);stroke-width:1;transition:all 0.25s ease;}
+.arm-path{stroke:#1e3347;stroke-width:15;stroke-linecap:round;fill:none;transition:all 0.25s ease;}
+.arm-center{stroke:rgba(53,159,217,0.1);stroke-width:1;stroke-linecap:round;fill:none;transition:all 0.25s ease;}
+.body-rect{fill:#1c303f;stroke:rgba(53,159,217,0.35);stroke-width:1.5;transition:all 0.25s ease;}
+.battery-rect{fill:#111f2b;stroke:rgba(107,146,173,0.5);stroke-width:1;transition:all 0.25s ease;}
+.battery-fill{fill:rgba(107,146,173,0.2);transition:all 0.25s ease;}
+.fc-rect{fill:#0a1520;stroke:rgba(233,78,38,0.4);stroke-width:1;transition:all 0.25s ease;}
+.fc-dot{fill:rgba(233,78,38,0.5);transition:all 0.25s ease;}
+.esc-rect{fill:#111f2b;stroke:rgba(107,146,173,0.35);stroke-width:0.8;transition:all 0.25s ease;}
+.cargo-rect{fill:rgba(53,159,217,0.04);stroke:rgba(107,146,173,0.3);stroke-width:1;stroke-dasharray:3,3;transition:all 0.25s ease;}
+.flow-arrow{stroke:var(--orange);stroke-width:1.2;fill:none;opacity:0;transition:opacity 0.3s ease;}
+.flow-arrow-head{fill:var(--orange);opacity:0;transition:opacity 0.3s ease;}
+
+/* SVG ELEMENT BASE STYLES — perspective view */
+.p-prop{fill:rgba(53,159,217,0.06);stroke:rgba(53,159,217,0.22);stroke-width:1;stroke-dasharray:4,3;transition:all 0.25s ease;}
+.p-motor{fill:var(--navy);stroke:rgba(53,159,217,0.4);stroke-width:1.5;transition:all 0.25s ease;}
+.p-arm{stroke:#1e3347;stroke-linecap:round;fill:none;transition:all 0.25s ease;}
+.p-body{fill:#1c303f;stroke:rgba(53,159,217,0.35);stroke-width:1.5;transition:all 0.25s ease;}
+.p-battery{fill:#111f2b;stroke:rgba(107,146,173,0.5);stroke-width:1;transition:all 0.25s ease;}
+.p-fc{fill:#0a1520;stroke:rgba(233,78,38,0.4);stroke-width:1;transition:all 0.25s ease;}
+.p-fc-dot{fill:rgba(233,78,38,0.5);transition:all 0.25s ease;}
+.p-esc{fill:#111f2b;stroke:rgba(107,146,173,0.35);stroke-width:0.8;transition:all 0.25s ease;}
+.p-cargo{fill:rgba(53,159,217,0.04);stroke:rgba(107,146,173,0.28);stroke-width:1;stroke-dasharray:3,3;transition:all 0.25s ease;}
+.p-inflow{opacity:0;transition:opacity 0.4s ease;}
+.p-inflow-arrow{opacity:0;transition:opacity 0.4s ease;}
+.vtol-wing{fill:#1c303f;stroke:rgba(53,159,217,0.3);stroke-width:1;transition:all 0.25s ease;}
+.rkt-body{fill:#1c303f;stroke:rgba(53,159,217,0.35);stroke-width:1.5;transition:all 0.25s ease;}
+.rkt-nose{fill:#1a2d3c;stroke:rgba(53,159,217,0.3);stroke-width:1.2;transition:all 0.25s ease;}
+.rkt-nozzle{fill:#192838;stroke:rgba(107,146,173,0.4);stroke-width:1;transition:all 0.25s ease;}
+.rkt-fin{fill:#192838;stroke:rgba(53,159,217,0.28);stroke-width:1;transition:all 0.25s ease;}
+
+/* TOP VIEW ACTIVE STATES */
+.active-propellers .prop-circle{fill:rgba(233,78,38,0.12);stroke:var(--orange);stroke-dasharray:none;filter:drop-shadow(0 0 6px rgba(233,78,38,0.5));}
+.active-propellers .prop-blade{stroke:var(--orange);}
+.active-motors .motor-ring{fill:rgba(233,78,38,0.2);stroke:var(--orange);filter:drop-shadow(0 0 5px rgba(233,78,38,0.6));}
+.active-motors .motor-inner{fill:rgba(233,78,38,0.1);}
+.active-arms .arm-path{stroke:var(--orange);filter:drop-shadow(0 0 4px rgba(233,78,38,0.4));}
+.active-arms .arm-center{stroke:rgba(233,78,38,0.3);}
+.active-body .body-rect{fill:rgba(233,78,38,0.15);stroke:var(--orange);filter:drop-shadow(0 0 6px rgba(233,78,38,0.4));}
+.active-battery .battery-rect{stroke:var(--orange);filter:drop-shadow(0 0 4px rgba(233,78,38,0.5));}
+.active-battery .battery-fill{fill:rgba(233,78,38,0.2);}
+.active-fc .fc-rect{fill:rgba(233,78,38,0.15);stroke:var(--orange);filter:drop-shadow(0 0 5px rgba(233,78,38,0.6));}
+.active-fc .fc-dot{fill:var(--orange);}
+.active-esc .esc-rect{fill:rgba(233,78,38,0.12);stroke:var(--orange);filter:drop-shadow(0 0 3px rgba(233,78,38,0.5));}
+.active-cargo .cargo-rect{fill:rgba(233,78,38,0.1);stroke:var(--orange);stroke-dasharray:none;filter:drop-shadow(0 0 5px rgba(233,78,38,0.4));}
+.active-interactions .prop-circle{stroke:var(--orange);stroke-dasharray:none;fill:rgba(233,78,38,0.06);}
+.active-interactions .flow-arrow{opacity:1;}
+.active-interactions .flow-arrow-head{opacity:1;}
+.active-interactions .arm-path{stroke:#243344;}
+.active-overview .prop-circle{fill:rgba(53,159,217,0.12);stroke:var(--blue);stroke-dasharray:none;}
+.active-overview .motor-ring{stroke:var(--blue);fill:rgba(53,159,217,0.15);}
+.active-overview .body-rect{fill:rgba(53,159,217,0.1);stroke:var(--blue);}
+.active-overview .arm-path{stroke:#1c3040;}
+
+/* PERSPECTIVE ACTIVE STATES */
+.active-propellers .p-prop{fill:rgba(233,78,38,0.15);stroke:var(--orange);stroke-dasharray:none;filter:drop-shadow(0 0 5px rgba(233,78,38,0.5));}
+.active-motors .p-motor{fill:rgba(233,78,38,0.2);stroke:var(--orange);filter:drop-shadow(0 0 4px rgba(233,78,38,0.5));}
+.active-arms .p-arm{stroke:var(--orange);filter:drop-shadow(0 0 3px rgba(233,78,38,0.4));}
+.active-body .p-body{fill:rgba(233,78,38,0.14);stroke:var(--orange);filter:drop-shadow(0 0 5px rgba(233,78,38,0.4));}
+.active-battery .p-battery{stroke:var(--orange);filter:drop-shadow(0 0 4px rgba(233,78,38,0.5));}
+.active-fc .p-fc{fill:rgba(233,78,38,0.14);stroke:var(--orange);filter:drop-shadow(0 0 4px rgba(233,78,38,0.5));}
+.active-fc .p-fc-dot{fill:var(--orange);}
+.active-esc .p-esc{fill:rgba(233,78,38,0.12);stroke:var(--orange);filter:drop-shadow(0 0 3px rgba(233,78,38,0.4));}
+.active-cargo .p-cargo{fill:rgba(233,78,38,0.1);stroke:var(--orange);stroke-dasharray:none;}
+.active-interactions .p-inflow{opacity:1;}
+.active-interactions .p-inflow-arrow{opacity:1;}
+.active-arms .vtol-wing{fill:rgba(233,78,38,0.12);stroke:var(--orange);filter:drop-shadow(0 0 4px rgba(233,78,38,0.3));}
+.active-motors .rkt-nozzle{fill:rgba(233,78,38,0.18);stroke:var(--orange);filter:drop-shadow(0 0 4px rgba(233,78,38,0.5));}
+.active-arms .rkt-fin{fill:rgba(233,78,38,0.14);stroke:var(--orange);filter:drop-shadow(0 0 3px rgba(233,78,38,0.4));}
+.active-body .rkt-body{fill:rgba(233,78,38,0.14);stroke:var(--orange);filter:drop-shadow(0 0 5px rgba(233,78,38,0.4));}
+.active-body .rkt-nose{fill:rgba(233,78,38,0.1);stroke:var(--orange);}
+.active-overview .p-body{fill:rgba(53,159,217,0.1);stroke:var(--blue);}
+.active-overview .p-arm{stroke:#1c3040;}
+.active-overview .vtol-wing{fill:rgba(53,159,217,0.08);stroke:var(--blue);}
+
+/* PROP SPIN */
+@keyframes spinProp{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.active-propellers .prop-spin,.active-interactions .prop-spin{animation:spinProp 2s linear infinite;}
+.active-propellers .prop-spin-r,.active-interactions .prop-spin-r{animation:spinProp 2s linear infinite reverse;}
+
+/* RIGHT PANEL */
+.info-panel{flex:0 0 45%;display:flex;flex-direction:column;background:var(--navy-panel);overflow:hidden;}
+.comp-selector{padding:13px 16px 11px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.selector-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:9px;}
+.selector-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
+.comp-pill{font-family:'JetBrains Mono',monospace;font-size:9px;padding:7px 5px;border-radius:4px;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--muted);cursor:pointer;text-align:center;letter-spacing:0.3px;transition:all 0.15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.comp-pill:hover:not(.faded){border-color:var(--border-str);color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.06);}
+.comp-pill.active{background:rgba(233,78,38,0.15);border-color:rgba(233,78,38,0.5);color:var(--orange);}
+.comp-pill.overview-pill{grid-column:span 3;background:rgba(53,159,217,0.06);border-color:rgba(53,159,217,0.2);color:var(--blue);}
+.comp-pill.overview-pill.active{background:rgba(53,159,217,0.18);border-color:var(--blue);}
+.comp-pill.faded{opacity:0.28;cursor:default;text-decoration:line-through;text-decoration-color:rgba(107,146,173,0.3);}
+
+.info-content{flex:1;overflow-y:auto;padding:18px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+.info-content::-webkit-scrollbar{width:4px;}
+.info-content::-webkit-scrollbar-thumb{background:var(--border-str);border-radius:2px;}
+
+.comp-info{animation:fadeIn 0.2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.comp-name{font-family:'Playfair Display',serif;font-size:25px;font-weight:900;color:var(--orange);line-height:1.1;margin-bottom:6px;}
+.comp-stat{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--orange);background:rgba(233,78,38,0.12);border:1px solid rgba(233,78,38,0.3);padding:4px 10px;border-radius:3px;letter-spacing:0.5px;margin-bottom:5px;}
+.comp-subtitle{font-size:12px;color:var(--muted);letter-spacing:0.5px;margin-top:3px;}
+.info-divider{height:1px;background:var(--border);margin:14px 0;}
+.info-section{margin-bottom:11px;border-radius:6px;padding:13px 15px;}
+.info-section.challenge{background:rgba(233,78,38,0.06);border:1px solid rgba(233,78,38,0.18);border-left:3px solid rgba(233,78,38,0.5);}
+.info-section.solution{background:rgba(53,159,217,0.06);border:1px solid rgba(53,159,217,0.15);border-left:3px solid rgba(53,159,217,0.5);}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:7px;font-weight:500;}
+.challenge .section-label{color:rgba(233,78,38,0.7);}
+.solution .section-label{color:rgba(53,159,217,0.7);}
+.section-text{font-size:13px;line-height:1.65;color:rgba(255,255,255,0.8);}
+.na-banner{background:rgba(107,146,173,0.08);border:1px solid rgba(107,146,173,0.2);border-radius:6px;padding:16px;text-align:center;color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;}
+
+.play-bar{padding:9px 16px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0;background:rgba(10,21,32,0.5);}
+.play-btn{font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:6px 13px;border-radius:3px;border:1px solid rgba(233,78,38,0.4);background:rgba(233,78,38,0.1);color:var(--orange);cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all 0.15s;display:flex;align-items:center;gap:6px;}
+.play-btn:hover{background:rgba(233,78,38,0.2);}
+.play-btn.playing{background:rgba(53,159,217,0.15);border-color:rgba(53,159,217,0.4);color:var(--blue);}
+.play-status{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.5px;}
+
+footer{border-top:1px solid var(--border);padding:8px 32px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:rgba(10,21,32,0.8);}
+.footer-text{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;}
+.footer-pub{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(107,146,173,0.5);}
+</style>
+</head>
+<body>
+<div class="svg-tooltip" id="svg-tooltip"></div>
+
+<header>
+  <div class="logo">
+    <span class="logo-ff">FF</span><span class="logo-twin">Twin</span>
+    <div class="logo-sep"></div>
+    <span class="header-title">Component Explorer</span>
+  </div>
+  <span class="phase-badge">01 Design</span>
+</header>
+
+<main>
+<div class="drone-panel" id="drone-panel">
+  <div class="vehicle-switcher">
+    <span class="vehicle-label">Vehicle</span>
+    <button class="vehicle-btn active" data-vehicle="multirotor">Multi-rotor</button>
+    <button class="vehicle-btn" data-vehicle="fixedwing">VTOL / Fixed Wing</button>
+    <button class="vehicle-btn" data-vehicle="rocket">Rocket</button>
+  </div>
+
+  <div class="views-column">
+
+    <!-- ══════════════════════════════════════════
+         MULTIROTOR VIEWS
+    ══════════════════════════════════════════ -->
+    <div id="views-multirotor" class="vehicle-views">
+
+      <!-- TOP VIEW -->
+      <div class="view-segment top-view">
+        <span class="view-label">Top View</span>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" id="mr-top">
+            <defs>
+              <pattern id="g1" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.6" fill="rgba(53,159,217,0.15)"/></pattern>
+              <marker id="ar1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 Z" class="flow-arrow-head"/></marker>
+            </defs>
+            <rect width="380" height="380" fill="url(#g1)"/>
+            <!-- crosshair -->
+            <line x1="190" y1="152" x2="190" y2="166" stroke="rgba(53,159,217,0.2)" stroke-width="0.8"/>
+            <line x1="190" y1="214" x2="190" y2="228" stroke="rgba(53,159,217,0.2)" stroke-width="0.8"/>
+            <line x1="152" y1="190" x2="166" y2="190" stroke="rgba(53,159,217,0.2)" stroke-width="0.8"/>
+            <line x1="214" y1="190" x2="228" y2="190" stroke="rgba(53,159,217,0.2)" stroke-width="0.8"/>
+            <circle cx="190" cy="190" r="2" fill="rgba(53,159,217,0.3)"/>
+            <!-- front indicator -->
+            <polygon points="190,16 183,27 197,27" fill="rgba(233,78,38,0.5)"/>
+            <text x="178" y="13" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(233,78,38,0.6)" letter-spacing="1">FRONT</text>
+            <!-- span line -->
+            <line x1="76" y1="362" x2="304" y2="362" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+            <line x1="76" y1="358" x2="76" y2="366" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+            <line x1="304" y1="358" x2="304" y2="366" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+            <text x="152" y="374" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(53,159,217,0.3)" letter-spacing="1">~ 228mm span</text>
+
+            <!-- flow arrows -->
+            <path class="flow-arrow" d="M 248,107 Q 190,73 132,107" marker-end="url(#ar1)"/>
+            <path class="flow-arrow" d="M 107,132 Q 73,190 107,248" marker-end="url(#ar1)"/>
+            <path class="flow-arrow" d="M 132,273 Q 190,307 248,273" marker-end="url(#ar1)"/>
+            <path class="flow-arrow" d="M 273,248 Q 307,190 273,132" marker-end="url(#ar1)"/>
+            <path class="flow-arrow" d="M 238,115 Q 190,190 142,265" stroke-width="0.8" marker-end="url(#ar1)" stroke-dasharray="4,3"/>
+            <path class="flow-arrow" d="M 142,115 Q 190,190 238,265" stroke-width="0.8" marker-end="url(#ar1)" stroke-dasharray="4,3"/>
+
+            <!-- PROPELLERS -->
+            <g class="drone-group" data-comp="propellers">
+              <g class="prop-spin" style="transform-origin:258px 112px"><circle cx="258" cy="112" r="52" class="prop-circle"/><line x1="258" y1="60" x2="258" y2="164" class="prop-blade"/><line x1="206" y1="112" x2="310" y2="112" class="prop-blade"/></g>
+              <g class="prop-spin" style="transform-origin:122px 112px"><circle cx="122" cy="112" r="52" class="prop-circle"/><line x1="122" y1="60" x2="122" y2="164" class="prop-blade"/><line x1="70" y1="112" x2="174" y2="112" class="prop-blade"/></g>
+              <g class="prop-spin-r" style="transform-origin:258px 268px"><circle cx="258" cy="268" r="52" class="prop-circle"/><line x1="258" y1="216" x2="258" y2="320" class="prop-blade"/><line x1="206" y1="268" x2="310" y2="268" class="prop-blade"/></g>
+              <g class="prop-spin-r" style="transform-origin:122px 268px"><circle cx="122" cy="268" r="52" class="prop-circle"/><line x1="122" y1="216" x2="122" y2="320" class="prop-blade"/><line x1="70" y1="268" x2="174" y2="268" class="prop-blade"/></g>
+            </g>
+            <!-- ARMS -->
+            <g class="drone-group" data-comp="arms">
+              <line x1="190" y1="190" x2="258" y2="112" class="arm-path"/><line x1="190" y1="190" x2="258" y2="112" class="arm-center"/>
+              <line x1="190" y1="190" x2="122" y2="112" class="arm-path"/><line x1="190" y1="190" x2="122" y2="112" class="arm-center"/>
+              <line x1="190" y1="190" x2="258" y2="268" class="arm-path"/><line x1="190" y1="190" x2="258" y2="268" class="arm-center"/>
+              <line x1="190" y1="190" x2="122" y2="268" class="arm-path"/><line x1="190" y1="190" x2="122" y2="268" class="arm-center"/>
+            </g>
+            <!-- ESC -->
+            <g class="drone-group" data-comp="esc">
+              <rect x="218" y="141" width="12" height="7" rx="1.5" transform="rotate(-45 224 144)" class="esc-rect"/>
+              <rect x="145" y="141" width="12" height="7" rx="1.5" transform="rotate(45 151 144)" class="esc-rect"/>
+              <rect x="218" y="222" width="12" height="7" rx="1.5" transform="rotate(45 224 225)" class="esc-rect"/>
+              <rect x="145" y="222" width="12" height="7" rx="1.5" transform="rotate(-45 151 225)" class="esc-rect"/>
+            </g>
+            <!-- MOTORS -->
+            <g class="drone-group" data-comp="motors">
+              <circle cx="258" cy="112" r="13" class="motor-ring"/><circle cx="258" cy="112" r="7" class="motor-inner"/><circle cx="258" cy="112" r="2.5" fill="rgba(53,159,217,0.4)"/>
+              <circle cx="122" cy="112" r="13" class="motor-ring"/><circle cx="122" cy="112" r="7" class="motor-inner"/><circle cx="122" cy="112" r="2.5" fill="rgba(53,159,217,0.4)"/>
+              <circle cx="258" cy="268" r="13" class="motor-ring"/><circle cx="258" cy="268" r="7" class="motor-inner"/><circle cx="258" cy="268" r="2.5" fill="rgba(53,159,217,0.4)"/>
+              <circle cx="122" cy="268" r="13" class="motor-ring"/><circle cx="122" cy="268" r="7" class="motor-inner"/><circle cx="122" cy="268" r="2.5" fill="rgba(53,159,217,0.4)"/>
+            </g>
+            <!-- BODY -->
+            <g class="drone-group" data-comp="body">
+              <rect x="163" y="163" width="54" height="54" rx="5" class="body-rect"/>
+              <line x1="173" y1="176" x2="207" y2="176" stroke="rgba(53,159,217,0.14)" stroke-width="0.8"/>
+              <line x1="173" y1="204" x2="207" y2="204" stroke="rgba(53,159,217,0.14)" stroke-width="0.8"/>
+              <circle cx="169" cy="169" r="2.5" fill="none" stroke="rgba(53,159,217,0.22)" stroke-width="0.8"/>
+              <circle cx="211" cy="169" r="2.5" fill="none" stroke="rgba(53,159,217,0.22)" stroke-width="0.8"/>
+              <circle cx="169" cy="211" r="2.5" fill="none" stroke="rgba(53,159,217,0.22)" stroke-width="0.8"/>
+              <circle cx="211" cy="211" r="2.5" fill="none" stroke="rgba(53,159,217,0.22)" stroke-width="0.8"/>
+            </g>
+            <!-- CARGO -->
+            <g class="drone-group" data-comp="cargo">
+              <rect x="177" y="177" width="26" height="26" rx="3" class="cargo-rect"/>
+              <text x="181" y="193" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(107,146,173,0.4)">PAYLOAD</text>
+            </g>
+            <!-- BATTERY -->
+            <g class="drone-group" data-comp="battery">
+              <rect x="181" y="205" width="20" height="9" rx="2" class="battery-rect"/>
+              <rect x="183" y="207" width="12" height="5" rx="1" class="battery-fill"/>
+              <rect x="201" y="207.5" width="2" height="4.5" rx="0.8" fill="rgba(107,146,173,0.4)"/>
+            </g>
+            <!-- FC -->
+            <g class="drone-group" data-comp="fc">
+              <rect x="181" y="179" width="18" height="18" rx="3" class="fc-rect"/>
+              <line x1="181" y1="184" x2="177" y2="184" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="181" y1="188" x2="177" y2="188" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="181" y1="192" x2="177" y2="192" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="199" y1="184" x2="203" y2="184" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="199" y1="188" x2="203" y2="188" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="199" y1="192" x2="203" y2="192" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <circle cx="190" cy="188" r="3" class="fc-dot"/>
+            </g>
+            <!-- INTERACTIONS -->
+            <g class="drone-group" data-comp="interactions">
+              <rect x="0" y="0" width="380" height="380" fill="transparent"/>
+            </g>
+            <!-- Labels -->
+            <text x="278" y="62" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="propellers">PROP ①</text>
+            <line x1="276" y1="65" x2="262" y2="76" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="278" y="100" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="motors">MOTOR ②</text>
+            <line x1="276" y1="103" x2="271" y2="110" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="280" y="178" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="arms">WING ③</text>
+            <line x1="278" y1="175" x2="242" y2="168" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="6" y="188" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="body">BODY ④</text>
+            <line x1="48" y1="186" x2="162" y2="185" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="6" y="213" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="battery">BATT ⑤</text>
+            <line x1="40" y1="211" x2="180" y2="208" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="280" y="140" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="esc">ESC ⑥</text>
+            <line x1="278" y1="137" x2="240" y2="150" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="6" y="200" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="fc">FC ⑦</text>
+            <line x1="22" y1="198" x2="180" y2="193" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="6" y="226" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="cargo">PAYLOAD ⑧</text>
+            <line x1="62" y1="223" x2="177" y2="212" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="6" y="155" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="interactions">INFLOW ⑨</text>
+            <line x1="50" y1="152" x2="140" y2="140" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- PERSPECTIVE VIEW -->
+      <div class="view-segment">
+        <span class="view-label">Perspective View</span>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" id="mr-persp">
+            <defs>
+              <pattern id="g2" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(53,159,217,0.12)"/></pattern>
+              <linearGradient id="wake-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(53,159,217,0.22)"/>
+                <stop offset="70%" stop-color="rgba(53,159,217,0.08)"/>
+                <stop offset="100%" stop-color="rgba(53,159,217,0.0)"/>
+              </linearGradient>
+              <linearGradient id="wake-grad-sm" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(53,159,217,0.16)"/>
+                <stop offset="100%" stop-color="rgba(53,159,217,0.0)"/>
+              </linearGradient>
+              <marker id="ar-down" markerWidth="5" markerHeight="5" refX="2.5" refY="5" orient="auto">
+                <path d="M0,0 L2.5,5 L5,0 Z" fill="rgba(233,78,38,0.75)"/>
+              </marker>
+            </defs>
+            <rect width="500" height="260" fill="url(#g2)"/>
+
+            <!-- Inflow wakes (z-order: behind everything) -->
+            <!-- FR wake (front-right, big) -->
+            <path class="p-inflow" d="M 295,192 L 395,192 L 370,258 L 320,258 Z" fill="url(#wake-grad)"/>
+            <!-- FL wake (front-left, big) -->
+            <path class="p-inflow" d="M 105,192 L 205,192 L 180,258 L 130,258 Z" fill="url(#wake-grad)"/>
+            <!-- BR wake (back-right, smaller) -->
+            <path class="p-inflow" d="M 284,76 L 364,76 L 346,140 L 302,140 Z" fill="url(#wake-grad-sm)"/>
+            <!-- BL wake (back-left, smaller) -->
+            <path class="p-inflow" d="M 136,76 L 216,76 L 198,140 L 154,140 Z" fill="url(#wake-grad-sm)"/>
+            <!-- Ground wash halos -->
+            <ellipse cx="345" cy="258" rx="52" ry="8" fill="rgba(53,159,217,0.06)" class="p-inflow"/>
+            <ellipse cx="155" cy="258" rx="52" ry="8" fill="rgba(53,159,217,0.06)" class="p-inflow"/>
+            <!-- Interference zone center -->
+            <ellipse cx="250" cy="195" rx="55" ry="12" fill="rgba(233,78,38,0.04)" class="p-inflow"/>
+            <!-- Flow arrows FR -->
+            <line x1="345" y1="200" x2="345" y2="248" stroke="rgba(233,78,38,0.65)" stroke-width="1.2" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <line x1="330" y1="204" x2="327" y2="242" stroke="rgba(233,78,38,0.4)" stroke-width="0.8" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <line x1="360" y1="204" x2="363" y2="242" stroke="rgba(233,78,38,0.4)" stroke-width="0.8" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <!-- Flow arrows FL -->
+            <line x1="155" y1="200" x2="155" y2="248" stroke="rgba(233,78,38,0.65)" stroke-width="1.2" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <line x1="140" y1="204" x2="137" y2="242" stroke="rgba(233,78,38,0.4)" stroke-width="0.8" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <line x1="170" y1="204" x2="173" y2="242" stroke="rgba(233,78,38,0.4)" stroke-width="0.8" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <!-- Flow arrows BR/BL (shorter) -->
+            <line x1="324" y1="82" x2="324" y2="130" stroke="rgba(233,78,38,0.5)" stroke-width="1" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <line x1="176" y1="82" x2="176" y2="130" stroke="rgba(233,78,38,0.5)" stroke-width="1" marker-end="url(#ar-down)" class="p-inflow-arrow"/>
+            <!-- Inflow label -->
+            <text x="192" y="218" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(233,78,38,0.55)" class="p-inflow-arrow">interference zone</text>
+
+            <!-- ARMS (drawn first so motors/props appear on top) -->
+            <g class="drone-group" data-comp="arms">
+              <!-- FL arm (front-left, to viewer) -->
+              <line x1="248" y1="148" x2="155" y2="192" class="p-arm" style="stroke-width:13"/>
+              <!-- FR arm -->
+              <line x1="252" y1="148" x2="345" y2="192" class="p-arm" style="stroke-width:13"/>
+              <!-- BL arm (rear-left, away) -->
+              <line x1="246" y1="142" x2="176" y2="80" class="p-arm" style="stroke-width:11"/>
+              <!-- BR arm -->
+              <line x1="254" y1="142" x2="324" y2="80" class="p-arm" style="stroke-width:11"/>
+            </g>
+            <!-- ESC -->
+            <g class="drone-group" data-comp="esc">
+              <rect x="188" y="163" width="11" height="6" rx="1.5" transform="rotate(27 193 166)" class="p-esc"/>
+              <rect x="291" y="163" width="11" height="6" rx="1.5" transform="rotate(-27 297 166)" class="p-esc"/>
+              <rect x="196" y="105" width="9" height="5" rx="1.5" transform="rotate(40 200 107)" class="p-esc"/>
+              <rect x="285" y="105" width="9" height="5" rx="1.5" transform="rotate(-40 290 107)" class="p-esc"/>
+            </g>
+            <!-- PROPELLERS (front bigger, rear smaller) -->
+            <g class="drone-group" data-comp="propellers">
+              <g class="prop-spin" style="transform-origin:155px 192px"><ellipse cx="155" cy="192" rx="52" ry="16" class="p-prop"/><line x1="103" y1="192" x2="207" y2="192" stroke="rgba(53,159,217,0.22)" stroke-width="1.5" stroke-linecap="round" class="prop-blade"/><line x1="155" y1="168" x2="155" y2="216" stroke="rgba(53,159,217,0.22)" stroke-width="1.5" stroke-linecap="round" class="prop-blade"/></g>
+              <g class="prop-spin-r" style="transform-origin:345px 192px"><ellipse cx="345" cy="192" rx="52" ry="16" class="p-prop"/><line x1="293" y1="192" x2="397" y2="192" stroke="rgba(53,159,217,0.22)" stroke-width="1.5" stroke-linecap="round" class="prop-blade"/><line x1="345" y1="168" x2="345" y2="216" stroke="rgba(53,159,217,0.22)" stroke-width="1.5" stroke-linecap="round" class="prop-blade"/></g>
+              <g class="prop-spin" style="transform-origin:176px 80px"><ellipse cx="176" cy="80" rx="40" ry="12" class="p-prop"/><line x1="136" y1="80" x2="216" y2="80" stroke="rgba(53,159,217,0.18)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/><line x1="176" y1="60" x2="176" y2="100" stroke="rgba(53,159,217,0.18)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/></g>
+              <g class="prop-spin-r" style="transform-origin:324px 80px"><ellipse cx="324" cy="80" rx="40" ry="12" class="p-prop"/><line x1="284" y1="80" x2="364" y2="80" stroke="rgba(53,159,217,0.18)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/><line x1="324" y1="60" x2="324" y2="100" stroke="rgba(53,159,217,0.18)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/></g>
+            </g>
+            <!-- MOTORS -->
+            <g class="drone-group" data-comp="motors">
+              <ellipse cx="155" cy="192" rx="15" ry="10" class="p-motor"/><ellipse cx="155" cy="192" rx="8" ry="5" fill="#162535" stroke="rgba(53,159,217,0.25)" stroke-width="0.8"/>
+              <ellipse cx="345" cy="192" rx="15" ry="10" class="p-motor"/><ellipse cx="345" cy="192" rx="8" ry="5" fill="#162535" stroke="rgba(53,159,217,0.25)" stroke-width="0.8"/>
+              <ellipse cx="176" cy="80" rx="12" ry="7" class="p-motor"/><ellipse cx="176" cy="80" rx="6" ry="4" fill="#162535" stroke="rgba(53,159,217,0.2)" stroke-width="0.8"/>
+              <ellipse cx="324" cy="80" rx="12" ry="7" class="p-motor"/><ellipse cx="324" cy="80" rx="6" ry="4" fill="#162535" stroke="rgba(53,159,217,0.2)" stroke-width="0.8"/>
+            </g>
+            <!-- BODY -->
+            <g class="drone-group" data-comp="body">
+              <!-- top face -->
+              <path d="M 227,132 L 273,132 L 268,152 L 232,152 Z" class="p-body"/>
+              <!-- front face (small) -->
+              <path d="M 232,152 L 268,152 L 268,162 L 232,162 Z" fill="#162535" stroke="rgba(53,159,217,0.25)" stroke-width="1"/>
+              <!-- circuit detail -->
+              <line x1="235" y1="140" x2="265" y2="140" stroke="rgba(53,159,217,0.12)" stroke-width="0.8"/>
+              <line x1="235" y1="147" x2="265" y2="147" stroke="rgba(53,159,217,0.12)" stroke-width="0.8"/>
+            </g>
+            <!-- BATTERY -->
+            <g class="drone-group" data-comp="battery">
+              <rect x="233" y="153" width="34" height="10" rx="2" class="p-battery"/>
+              <rect x="235" y="155" width="22" height="6" rx="1" fill="rgba(107,146,173,0.18)"/>
+              <rect x="267" y="155.5" width="2.5" height="5" rx="0.8" fill="rgba(107,146,173,0.35)"/>
+            </g>
+            <!-- FC -->
+            <g class="drone-group" data-comp="fc">
+              <rect x="236" y="134" width="28" height="16" rx="3" class="p-fc"/>
+              <circle cx="250" cy="142" r="4" class="p-fc-dot"/>
+            </g>
+            <!-- CARGO -->
+            <g class="drone-group" data-comp="cargo">
+              <rect x="234" y="162" width="32" height="22" rx="3" class="p-cargo"/>
+              <text x="238" y="175" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(107,146,173,0.38)">PAYLOAD</text>
+            </g>
+            <!-- INTERACTIONS clickable area -->
+            <g class="drone-group" data-comp="interactions">
+              <rect x="0" y="0" width="500" height="260" fill="transparent"/>
+            </g>
+            <!-- Perspective label -->
+            <text x="10" y="250" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(53,159,217,0.2)" letter-spacing="1">FRONT</text>
+            <text x="420" y="40" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(53,159,217,0.18)" letter-spacing="1">REAR</text>
+          </svg>
+        </div>
+      </div>
+    </div><!-- end multirotor -->
+
+
+    <!-- ══════════════════════════════════════════
+         VTOL / FIXED WING VIEWS
+    ══════════════════════════════════════════ -->
+    <div id="views-fixedwing" class="vehicle-views hidden">
+
+      <!-- TOP VIEW -->
+      <div class="view-segment top-view">
+        <span class="view-label">Top View — VTOL</span>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" id="fw-top">
+            <defs><pattern id="g3" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.6" fill="rgba(53,159,217,0.15)"/></pattern></defs>
+            <rect width="480" height="360" fill="url(#g3)"/>
+            <!-- Front indicator -->
+            <polygon points="240,14 233,25 247,25" fill="rgba(233,78,38,0.5)"/>
+            <text x="228" y="11" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(233,78,38,0.6)" letter-spacing="1">FRONT</text>
+
+            <!-- MAIN WING -->
+            <g class="drone-group" data-comp="arms">
+              <!-- Left wing -->
+              <path d="M 20,175 C 30,165 70,162 115,162 L 115,192 C 70,192 30,185 20,175 Z" class="vtol-wing"/>
+              <!-- Right wing -->
+              <path d="M 365,162 C 410,162 450,165 460,175 C 450,185 410,192 365,192 Z" class="vtol-wing"/>
+              <!-- Center wing section (between booms) -->
+              <rect x="115" y="162" width="250" height="30" class="vtol-wing" rx="2"/>
+              <!-- Boom vertical lines on wing -->
+              <line x1="115" y1="155" x2="115" y2="200" stroke="rgba(53,159,217,0.2)" stroke-width="1.5"/>
+              <line x1="365" y1="155" x2="365" y2="200" stroke="rgba(53,159,217,0.2)" stroke-width="1.5"/>
+              <!-- Horizontal stabilizer -->
+              <path d="M 180,298 C 190,293 220,290 240,290 C 260,290 290,293 300,298 C 290,303 260,306 240,306 C 220,306 190,303 180,298 Z" class="vtol-wing" style="stroke-width:0.8"/>
+              <!-- Vertical fin -->
+              <path d="M 237,260 L 240,295 L 243,260 Z" fill="#1c303f" stroke="rgba(53,159,217,0.3)" stroke-width="1"/>
+            </g>
+
+            <!-- FUSELAGE -->
+            <g class="drone-group" data-comp="body">
+              <!-- Nose -->
+              <path d="M 240,38 L 228,78 L 252,78 Z" class="body-rect" style="stroke-width:1"/>
+              <!-- Main body -->
+              <rect x="228" y="78" width="24" height="215" rx="4" class="body-rect"/>
+              <!-- Internal details -->
+              <line x1="232" y1="120" x2="248" y2="120" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+              <line x1="232" y1="200" x2="248" y2="200" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+              <line x1="232" y1="250" x2="248" y2="250" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+            </g>
+
+            <!-- 4 VTOL PROPELLERS -->
+            <g class="drone-group" data-comp="propellers">
+              <!-- Left-front -->
+              <g class="prop-spin" style="transform-origin:80px 140px"><circle cx="80" cy="140" r="34" class="prop-circle"/><line x1="80" y1="106" x2="80" y2="174" class="prop-blade"/><line x1="46" y1="140" x2="114" y2="140" class="prop-blade"/></g>
+              <!-- Left-rear -->
+              <g class="prop-spin-r" style="transform-origin:80px 218px"><circle cx="80" cy="218" r="34" class="prop-circle"/><line x1="80" y1="184" x2="80" y2="252" class="prop-blade"/><line x1="46" y1="218" x2="114" y2="218" class="prop-blade"/></g>
+              <!-- Right-front -->
+              <g class="prop-spin-r" style="transform-origin:400px 140px"><circle cx="400" cy="140" r="34" class="prop-circle"/><line x1="400" y1="106" x2="400" y2="174" class="prop-blade"/><line x1="366" y1="140" x2="434" y2="140" class="prop-blade"/></g>
+              <!-- Right-rear -->
+              <g class="prop-spin" style="transform-origin:400px 218px"><circle cx="400" cy="218" r="34" class="prop-circle"/><line x1="400" y1="184" x2="400" y2="252" class="prop-blade"/><line x1="366" y1="218" x2="434" y2="218" class="prop-blade"/></g>
+            </g>
+
+            <!-- VTOL MOTORS -->
+            <g class="drone-group" data-comp="motors">
+              <circle cx="80" cy="140" r="12" class="motor-ring"/><circle cx="80" cy="140" r="6" class="motor-inner"/><circle cx="80" cy="140" r="2.5" fill="rgba(53,159,217,0.4)"/>
+              <circle cx="80" cy="218" r="12" class="motor-ring"/><circle cx="80" cy="218" r="6" class="motor-inner"/><circle cx="80" cy="218" r="2.5" fill="rgba(53,159,217,0.4)"/>
+              <circle cx="400" cy="140" r="12" class="motor-ring"/><circle cx="400" cy="140" r="6" class="motor-inner"/><circle cx="400" cy="140" r="2.5" fill="rgba(53,159,217,0.4)"/>
+              <circle cx="400" cy="218" r="12" class="motor-ring"/><circle cx="400" cy="218" r="6" class="motor-inner"/><circle cx="400" cy="218" r="2.5" fill="rgba(53,159,217,0.4)"/>
+            </g>
+
+            <!-- ESC (on booms at wing junction) -->
+            <g class="drone-group" data-comp="esc">
+              <rect x="108" y="153" width="12" height="7" rx="1.5" class="esc-rect"/>
+              <rect x="108" y="195" width="12" height="7" rx="1.5" class="esc-rect"/>
+              <rect x="360" y="153" width="12" height="7" rx="1.5" class="esc-rect"/>
+              <rect x="360" y="195" width="12" height="7" rx="1.5" class="esc-rect"/>
+            </g>
+
+            <!-- BATTERY (in fuselage) -->
+            <g class="drone-group" data-comp="battery">
+              <rect x="230" y="200" width="20" height="38" rx="2" class="battery-rect"/>
+              <rect x="232" y="202" width="16" height="26" rx="1" class="battery-fill"/>
+              <rect x="233" y="238" width="14" height="3" rx="0.8" fill="rgba(107,146,173,0.35)"/>
+            </g>
+
+            <!-- FC -->
+            <g class="drone-group" data-comp="fc">
+              <rect x="231" y="100" width="18" height="16" rx="3" class="fc-rect"/>
+              <circle cx="240" cy="108" r="3.5" class="fc-dot"/>
+              <line x1="231" y1="104" x2="228" y2="104" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="231" y1="108" x2="228" y2="108" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="249" y1="104" x2="252" y2="104" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="249" y1="108" x2="252" y2="108" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+            </g>
+
+            <!-- CARGO -->
+            <g class="drone-group" data-comp="cargo">
+              <rect x="229" y="120" width="22" height="70" rx="3" class="cargo-rect"/>
+              <line x1="229" y1="155" x2="251" y2="155" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" stroke-dasharray="3,3"/>
+              <text x="231" y="147" font-family="JetBrains Mono,monospace" font-size="5" fill="rgba(107,146,173,0.38)">PAYLOAD</text>
+            </g>
+
+            <!-- Labels -->
+            <text x="6" y="136" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="propellers">PROP ①</text>
+            <line x1="44" y1="134" x2="65" y2="136" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="6" y="150" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="motors">MOTOR ②</text>
+            <line x1="52" y1="148" x2="67" y2="142" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="6" y="178" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="arms">WING ③</text>
+            <line x1="40" y1="176" x2="70" y2="176" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="256" y="95" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="body">BODY ④</text>
+            <line x1="254" y1="98" x2="249" y2="108" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="256" y="215" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="battery">BATT ⑤</text>
+            <line x1="254" y1="218" x2="250" y2="218" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="430" y="175" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="esc">ESC ⑥</text>
+            <line x1="430" y1="172" x2="373" y2="168" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="256" y="110" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="fc">FC ⑦</text>
+            <line x1="254" y1="108" x2="249" y2="108" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="256" y="148" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="cargo">PAYLOAD ⑧</text>
+            <line x1="254" y1="150" x2="251" y2="152" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- VTOL PERSPECTIVE VIEW -->
+      <div class="view-segment">
+        <span class="view-label">Perspective View</span>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg" id="fw-persp">
+            <defs><pattern id="g4" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(53,159,217,0.12)"/></pattern></defs>
+            <rect width="560" height="280" fill="url(#g4)"/>
+            <!-- Aircraft flying nose-left, tail-right, viewed from front-right slightly above -->
+            <!-- Nose at left (~x=70), tail at right (~x=490) -->
+
+            <!-- Far wing (port side, going up-away) -->
+            <g class="drone-group" data-comp="arms">
+              <path d="M 270,138 L 268,58 L 273,58 L 278,138 Z" class="vtol-wing" style="stroke-width:0.8"/>
+              <!-- Near wing (starboard side, going down-toward viewer) -->
+              <path d="M 278,148 L 270,238 L 278,238 L 290,148 Z" class="vtol-wing" style="stroke-width:0.8"/>
+              <!-- Wing root fairings -->
+              <path d="M 265,135 L 290,148 L 287,160 L 263,148 Z" class="vtol-wing" style="stroke-width:0.8"/>
+              <!-- Horizontal stabilizer (at tail) -->
+              <path d="M 450,136 L 430,115 L 433,113 L 455,134 Z" class="vtol-wing" style="stroke-width:0.7"/>
+              <path d="M 452,142 L 430,160 L 428,158 L 450,140 Z" class="vtol-wing" style="stroke-width:0.7"/>
+            </g>
+
+            <!-- FUSELAGE (body of aircraft) -->
+            <g class="drone-group" data-comp="body">
+              <!-- Fuselage top edge: nose → tail, slight upward tilt perspective -->
+              <path d="M 70,148 C 150,144 250,135 285,138 C 340,141 400,138 475,135" stroke="rgba(53,159,217,0.3)" stroke-width="1" fill="none" class="p-body" style="stroke:rgba(53,159,217,0.2)"/>
+              <!-- Fuselage body shape -->
+              <path d="M 70,148 C 110,145 200,138 270,138 L 278,148 C 278,148 290,150 295,152 C 380,150 430,144 475,141 L 475,149 C 430,152 380,158 295,160 C 290,162 278,164 278,164 L 270,152 C 200,152 110,159 70,155 Z" class="p-body"/>
+              <!-- Nose detail -->
+              <path d="M 70,148 C 60,148 55,151 70,155 Z" fill="#162535" stroke="rgba(53,159,217,0.2)" stroke-width="0.8"/>
+              <!-- Vertical fin -->
+              <path d="M 452,140 L 462,112 L 456,112 Z" class="p-body" style="stroke-width:0.8"/>
+            </g>
+
+            <!-- Far-side VTOL rotors (smaller, background) -->
+            <g class="drone-group" data-comp="propellers">
+              <g class="prop-spin" style="transform-origin:272px 80px"><ellipse cx="272" cy="80" rx="30" ry="9" class="p-prop"/><line x1="242" y1="80" x2="302" y2="80" stroke="rgba(53,159,217,0.2)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/><line x1="272" y1="62" x2="272" y2="98" stroke="rgba(53,159,217,0.2)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/></g>
+              <!-- Near-side front VTOL rotor -->
+              <g class="prop-spin-r" style="transform-origin:275px 195px"><ellipse cx="275" cy="195" rx="36" ry="11" class="p-prop"/><line x1="239" y1="195" x2="311" y2="195" stroke="rgba(53,159,217,0.22)" stroke-width="1.5" stroke-linecap="round" class="prop-blade"/><line x1="275" y1="172" x2="275" y2="218" stroke="rgba(53,159,217,0.22)" stroke-width="1.5" stroke-linecap="round" class="prop-blade"/></g>
+              <!-- Far-side rear VTOL rotor -->
+              <g class="prop-spin-r" style="transform-origin:390px 68px"><ellipse cx="390" cy="68" rx="25" ry="8" class="p-prop"/><line x1="365" y1="68" x2="415" y2="68" stroke="rgba(53,159,217,0.18)" stroke-width="1" stroke-linecap="round" class="prop-blade"/><line x1="390" y1="50" x2="390" y2="86" stroke="rgba(53,159,217,0.18)" stroke-width="1" stroke-linecap="round" class="prop-blade"/></g>
+              <!-- Near-side rear VTOL rotor -->
+              <g class="prop-spin" style="transform-origin:390px 215px"><ellipse cx="390" cy="215" rx="30" ry="9" class="p-prop"/><line x1="360" y1="215" x2="420" y2="215" stroke="rgba(53,159,217,0.2)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/><line x1="390" y1="196" x2="390" y2="234" stroke="rgba(53,159,217,0.2)" stroke-width="1.2" stroke-linecap="round" class="prop-blade"/></g>
+            </g>
+
+            <!-- MOTORS -->
+            <g class="drone-group" data-comp="motors">
+              <ellipse cx="272" cy="80" rx="10" ry="6" class="p-motor"/>
+              <ellipse cx="275" cy="195" rx="12" ry="7" class="p-motor"/>
+              <ellipse cx="390" cy="68" rx="9" ry="5" class="p-motor"/>
+              <ellipse cx="390" cy="215" rx="10" ry="6" class="p-motor"/>
+            </g>
+
+            <!-- ESC -->
+            <g class="drone-group" data-comp="esc">
+              <rect x="266" y="105" width="10" height="6" rx="1.5" class="p-esc"/>
+              <rect x="269" y="165" width="10" height="6" rx="1.5" class="p-esc"/>
+            </g>
+
+            <!-- BATTERY (in fuselage center) -->
+            <g class="drone-group" data-comp="battery">
+              <rect x="340" y="142" width="38" height="12" rx="2" class="p-battery"/>
+              <rect x="342" y="144" width="26" height="8" rx="1" fill="rgba(107,146,173,0.18)"/>
+              <rect x="378" y="144" width="2.5" height="7" rx="0.8" fill="rgba(107,146,173,0.35)"/>
+            </g>
+
+            <!-- FC (near nose, forward fuselage) -->
+            <g class="drone-group" data-comp="fc">
+              <rect x="155" y="140" width="28" height="14" rx="3" class="p-fc"/>
+              <circle cx="169" cy="147" r="4" class="p-fc-dot"/>
+            </g>
+
+            <!-- CARGO (belly, center fuselage) -->
+            <g class="drone-group" data-comp="cargo">
+              <rect x="225" y="152" width="60" height="20" rx="3" class="p-cargo"/>
+              <text x="232" y="165" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(107,146,173,0.35)">PAYLOAD</text>
+            </g>
+
+            <!-- Perspective labels -->
+            <text x="42" y="148" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(53,159,217,0.2)" letter-spacing="1">NOSE</text>
+            <text x="478" y="144" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(53,159,217,0.18)" letter-spacing="1">TAIL</text>
+            <text x="248" y="40" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(53,159,217,0.2)" letter-spacing="1">PORT</text>
+            <text x="248" y="258" font-family="JetBrains Mono,monospace" font-size="7" fill="rgba(53,159,217,0.2)" letter-spacing="1">STARBOARD</text>
+          </svg>
+        </div>
+      </div>
+    </div><!-- end fixedwing -->
+
+
+    <!-- ══════════════════════════════════════════
+         ROCKET VIEWS
+    ══════════════════════════════════════════ -->
+    <div id="views-rocket" class="vehicle-views hidden">
+
+      <!-- ROCKET TOP VIEW (horizontal profile / plan view) -->
+      <div class="view-segment top-view">
+        <span class="view-label">Profile View</span>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" id="rkt-top">
+            <defs><pattern id="g5" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(53,159,217,0.15)"/></pattern></defs>
+            <rect width="420" height="200" fill="url(#g5)"/>
+            <!-- Nose -->
+            <polygon points="50,100 88,84 88,116" fill="rgba(53,159,217,0.04)" stroke="none"/>
+            <!-- Nose cone tip indicator -->
+            <polygon points="50,100 88,84 88,116" class="rkt-nose"/>
+
+            <!-- BODY -->
+            <g class="drone-group" data-comp="body">
+              <rect x="88" y="86" width="240" height="28" rx="2" class="rkt-body"/>
+              <line x1="115" y1="90" x2="115" y2="110" stroke="rgba(53,159,217,0.12)" stroke-width="0.8"/>
+              <line x1="200" y1="90" x2="200" y2="110" stroke="rgba(53,159,217,0.12)" stroke-width="0.8"/>
+              <line x1="270" y1="90" x2="270" y2="110" stroke="rgba(53,159,217,0.12)" stroke-width="0.8"/>
+            </g>
+
+            <!-- PAYLOAD (nose section) -->
+            <g class="drone-group" data-comp="cargo">
+              <rect x="89" y="87" width="65" height="26" rx="2" class="cargo-rect"/>
+              <text x="95" y="102" font-family="JetBrains Mono,monospace" font-size="6" fill="rgba(107,146,173,0.38)">PAYLOAD</text>
+            </g>
+
+            <!-- FC / GUIDANCE -->
+            <g class="drone-group" data-comp="fc">
+              <rect x="158" y="89" width="38" height="22" rx="3" class="fc-rect"/>
+              <circle cx="177" cy="100" r="5" class="fc-dot"/>
+              <line x1="158" y1="94" x2="154" y2="94" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="158" y1="100" x2="154" y2="100" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="196" y1="94" x2="200" y2="94" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="196" y1="100" x2="200" y2="100" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+            </g>
+
+            <!-- FINS (arm equivalent) -->
+            <g class="drone-group" data-comp="arms">
+              <polygon points="270,86 330,52 328,86" class="rkt-fin"/>
+              <polygon points="270,114 330,148 328,114" class="rkt-fin"/>
+            </g>
+
+            <!-- ROCKET MOTOR (nozzle) -->
+            <g class="drone-group" data-comp="motors">
+              <path d="M 328,86 L 368,92 L 368,108 L 328,114 Z" class="rkt-nozzle"/>
+              <path d="M 368,92 C 378,95 382,100 378,100 C 382,100 378,105 368,108 Z" class="rkt-nozzle" style="stroke-width:0.8"/>
+            </g>
+
+            <!-- Labels -->
+            <text x="6" y="98" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="body">NOSE →</text>
+            <text x="96" y="76" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="cargo">PAYLOAD</text>
+            <text x="160" y="76" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="fc">GUIDANCE</text>
+            <text x="268" y="44" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="arms">FIN</text>
+            <text x="354" y="76" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="motors">MOTOR</text>
+            <line x1="351" y1="78" x2="340" y2="90" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ROCKET PERSPECTIVE VIEW -->
+      <div class="view-segment">
+        <span class="view-label">3D View</span>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" id="rkt-persp">
+            <defs>
+              <pattern id="g6" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(53,159,217,0.12)"/></pattern>
+              <linearGradient id="cyl-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="rgba(26,45,60,0.9)"/>
+                <stop offset="40%" stop-color="rgba(28,50,65,0.95)"/>
+                <stop offset="100%" stop-color="rgba(20,38,52,0.85)"/>
+              </linearGradient>
+            </defs>
+            <rect width="320" height="280" fill="url(#g6)"/>
+
+            <!-- Ground shadow -->
+            <ellipse cx="160" cy="268" rx="55" ry="8" fill="rgba(53,159,217,0.05)"/>
+
+            <!-- FINS (arms) -->
+            <g class="drone-group" data-comp="arms">
+              <!-- Front-right fin (faces viewer) -->
+              <path d="M 145,225 L 145,255 L 108,268 L 108,240 Z" class="rkt-fin"/>
+              <!-- Right fin (going right) -->
+              <path d="M 172,225 L 172,255 L 212,268 L 212,240 Z" class="rkt-fin"/>
+              <!-- Rear fin hint (faint, going away) -->
+              <path d="M 155,222 L 162,222 L 168,215 L 162,214 Z" fill="rgba(25,40,56,0.6)" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+            </g>
+
+            <!-- ROCKET MOTOR / NOZZLE -->
+            <g class="drone-group" data-comp="motors">
+              <!-- Nozzle bell -->
+              <path d="M 140,255 C 128,258 118,265 115,272 L 205,272 C 202,265 192,258 180,255 Z" class="rkt-nozzle"/>
+              <!-- Combustion chamber (bottom of body) -->
+              <rect x="140" y="238" width="40" height="20" rx="2" class="rkt-nozzle" style="stroke-width:1"/>
+            </g>
+
+            <!-- BODY (main cylindrical section) -->
+            <g class="drone-group" data-comp="body">
+              <!-- Cylinder body -->
+              <rect x="140" y="80" width="40" height="160" rx="4" fill="url(#cyl-grad)" stroke="rgba(53,159,217,0.35)" stroke-width="1.5" class="rkt-body"/>
+              <!-- Cylinder highlight (right edge) -->
+              <line x1="177" y1="82" x2="177" y2="238" stroke="rgba(53,159,217,0.1)" stroke-width="3"/>
+              <!-- Top ellipse -->
+              <ellipse cx="160" cy="80" rx="20" ry="6" fill="#1a2d3c" stroke="rgba(53,159,217,0.3)" stroke-width="1"/>
+              <!-- Body detail rings -->
+              <line x1="140" y1="130" x2="180" y2="130" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+              <line x1="140" y1="180" x2="180" y2="180" stroke="rgba(53,159,217,0.15)" stroke-width="0.8"/>
+            </g>
+
+            <!-- PAYLOAD (top of body, fairing section) -->
+            <g class="drone-group" data-comp="cargo">
+              <rect x="142" y="80" width="36" height="42" rx="3" class="p-cargo"/>
+              <text x="146" y="105" font-family="JetBrains Mono,monospace" font-size="5.5" fill="rgba(107,146,173,0.38)">PAYLOAD</text>
+            </g>
+
+            <!-- FC / GUIDANCE (upper body) -->
+            <g class="drone-group" data-comp="fc">
+              <rect x="143" y="128" width="34" height="26" rx="3" class="p-fc"/>
+              <circle cx="160" cy="141" r="6" class="p-fc-dot"/>
+              <line x1="143" y1="133" x2="138" y2="133" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="143" y1="140" x2="138" y2="140" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="177" y1="133" x2="182" y2="133" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+              <line x1="177" y1="140" x2="182" y2="140" stroke="rgba(233,78,38,0.3)" stroke-width="0.9"/>
+            </g>
+
+            <!-- NOSE CONE -->
+            <g class="drone-group" data-comp="body">
+              <path d="M 140,80 C 143,55 150,35 160,18 C 170,35 177,55 180,80 Z" class="rkt-nose"/>
+              <ellipse cx="160" cy="80" rx="20" ry="6" fill="#1a2d3c" stroke="rgba(53,159,217,0.25)" stroke-width="1"/>
+            </g>
+
+            <!-- Labels -->
+            <text x="186" y="25" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="body">NOSE CONE</text>
+            <line x1="184" y1="28" x2="175" y2="45" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="186" y="105" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="cargo">PAYLOAD</text>
+            <line x1="184" y1="103" x2="178" y2="100" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="186" y="143" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="fc">GUIDANCE</text>
+            <line x1="184" y1="141" x2="177" y2="141" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="186" y="255" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="motors">MOTOR</text>
+            <line x1="184" y1="258" x2="180" y2="262" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+            <text x="60" y="268" font-family="JetBrains Mono,monospace" font-size="7.5" fill="rgba(107,146,173,0.4)" class="svg-label" data-for="arms">FIN</text>
+            <line x1="86" y1="266" x2="108" y2="262" stroke="rgba(107,146,173,0.18)" stroke-width="0.8" class="svg-label-line"/>
+          </svg>
+        </div>
+      </div>
+    </div><!-- end rocket -->
+
+  </div><!-- views-column -->
+</div><!-- drone-panel -->
+
+
+<!-- RIGHT PANEL -->
+<div class="info-panel">
+  <div class="comp-selector">
+    <div class="selector-label">Select component</div>
+    <div class="selector-grid" id="pill-grid">
+      <button class="comp-pill" data-comp="propellers">① Propeller</button>
+      <button class="comp-pill" data-comp="motors">② Motor</button>
+      <button class="comp-pill" data-comp="arms">③ Wing</button>
+      <button class="comp-pill" data-comp="body">④ Body</button>
+      <button class="comp-pill" data-comp="battery">⑤ Battery</button>
+      <button class="comp-pill" data-comp="esc">⑥ ESC</button>
+      <button class="comp-pill" data-comp="fc">⑦ Flight Controller</button>
+      <button class="comp-pill" data-comp="cargo">⑧ Payload</button>
+      <button class="comp-pill" data-comp="interactions">⑨ Inflow</button>
+      <button class="comp-pill overview-pill" data-comp="overview">⬡ System Overview</button>
+    </div>
+  </div>
+  <div class="info-content"><div class="comp-info" id="comp-info"></div></div>
+  <div class="play-bar">
+    <button class="play-btn" id="play-btn"><span id="play-icon">▶</span><span id="play-label-txt">Auto-play</span></button>
+    <span class="play-status" id="play-status">Cycles through all components</span>
+  </div>
+</div>
+</main>
+
+<footer>
+  <span class="footer-text">FF Twin — UAV Simulation &amp; Optimization Platform</span>
+  <span class="footer-pub">Finn Matras, PhD · NTNU · The Aeronautical Journal 2025 · Wind Energy Science 2025</span>
+</footer>
+
+<script>
+const VEHICLE_FADE = { multirotor:[], fixedwing:['interactions'], rocket:['propellers','esc','battery'] };
+const VEHICLE_PILL_LABELS = {
+  multirotor:{ arms:'③ Wing / Arm' },
+  fixedwing:{ arms:'③ Wing', interactions:'⑨ Inflow (N/A)' },
+  rocket:{ arms:'③ Fin', motors:'② Rocket Motor', fc:'⑦ Guidance', propellers:'① Propeller (N/A)', esc:'⑥ ESC (N/A)', battery:'⑤ Battery (N/A)' }
+};
+const DEFAULT_PILL_LABELS = { propellers:'① Propeller', motors:'② Motor', arms:'③ Wing', body:'④ Body', battery:'⑤ Battery', esc:'⑥ ESC', fc:'⑦ Flight Controller', cargo:'⑧ Payload', interactions:'⑨ Inflow' };
+const COMP_OVERRIDES = {
+  rocket:{ motors:{name:'Rocket Motor',stat:'Propulsion & thrust vector',subtitle:'Combustion, nozzle geometry and gimbal'}, arms:{name:'Fin',stat:'Stability & attitude control',subtitle:'Aerodynamic stability surface at base'}, fc:{name:'Guidance System',stat:'Inertial navigation + autopilot',subtitle:'Trajectory control and attitude estimation'} },
+  fixedwing:{ arms:{name:'Wing',stat:'Primary lift surface',subtitle:'Airfoil geometry, span and aspect ratio'} }
+};
+const COMPONENTS = {
+  overview:{ name:'Complete System', stat:'All components — one model', subtitle:'Interconnected system analysis', challenge:'You only see total energy consumption — you cannot decompose it. You have seven components you could improve, but no calculation tells you which one to start with. You have a gut feeling, a datasheet recommendation, or you try component five and see what happens. Every change is a partial guess. Components are not independent: choosing a motor without knowing the propeller match, or the actual flight regime, leads to cascading redesigns.', solution:'FF Twin models your vehicle as a single interconnected system. The model calculates exactly where your efficiency losses are and which component gives the greatest gain if optimized. The optimization algorithm runs automatically — you set the goal, it finds the design. The model you build in the design phase is the same one used in all subsequent phases of the vehicle\'s life.' },
+  propellers:{ name:'Propeller', stat:'Efficiency varies 10–70% by geometry', subtitle:'Blade shape, pitch and inflow interaction', challenge:'Standard propeller specs ignore actual inflow conditions. The geometry is designed for one flight state — not the one the propeller actually operates in during forward flight. The control system compensates automatically, making the loss invisible. Coaxial designs with identical blades are almost always wrong.', solution:'FF Twin calculates the actual inflow velocity and angle for each propeller — in hover, during forward flight, and accounting for neighboring propeller interference. Optimal blade geometry is calculated specifically for your vehicle and mission. You don\'t choose from a catalogue. You calculate the right one.' },
+  motors:{ name:'Motor', stat:'20–30% loss outside optimal zone', subtitle:'Efficiency curve, torque and RPM matching', challenge:'Motors are chosen to match the propeller — but rarely to operate in their efficient zone for the actual flight regime. A motor working outside its optimal zone loses 20–30% efficiency continuously. The problem is invisible in normal operation.', solution:'FF Twin calculates the precise torque and RPM requirements the motor must deliver, given the propeller and expected flight regime. This produces a specification that matches motor to propeller to mission — not just a datasheet nameplate.' },
+  arms:{ name:'Wing / Arm', stat:'Fatigue life never calculated', subtitle:'Structure, aerodynamics and material selection', challenge:'Arms are round or square because they\'re easy to manufacture. But in airflow, an arm acts as a poor wing — it creates drag and no lift. Material fatigue is never calculated: no one knows when the arm will actually fail under accumulated load.', solution:'FF Twin calculates the actual forces the arm experiences in operation. Output: optimal material, minimum sufficient cross-section, estimated lifespan in flight hours — and the option for an aerodynamic profile that reduces drag.' },
+  body:{ name:'Body / Frame', stat:'Downward force in forward flight', subtitle:'Aerodynamic shape and structural platform', challenge:'A box-shaped body is practical for mounting components — but aerodynamically problematic. When the vehicle tilts forward in flight, the body can create a downward aerodynamic force. You use energy to fight your own design. No one has calculated what it costs.', solution:'FF Twin calculates aerodynamic forces on the body as a function of tilt and speed. You get an exact number for what your body shape costs in energy per flight hour — and a basis for deciding whether a redesign delivers a real gain.' },
+  battery:{ name:'Battery', stat:'Placement affects motor load distribution', subtitle:'Sizing, position and energy budget', challenge:'The battery is placed in the center because that\'s symmetric. But "symmetric" is not "optimal". Wrong placement increases load on the least efficient motors. Online calculators estimate flight time without these interaction effects — they are almost always wrong.', solution:'FF Twin calculates optimal battery placement for your mission: which motors are most efficient, what does it cost to shift the weight, what is the realistic estimated flight time. For delivery drones: separate optimization for fully loaded and empty return flight.' },
+  esc:{ name:'ESC', stat:'5–10% loss outside optimal zone', subtitle:'Electronic speed control per motor', challenge:'The ESC is matched to the motor\'s nominal current — but nominal is rarely optimal for the actual flight regime. An ESC operating outside its efficient zone loses energy continuously, quietly, and invisibly.', solution:'FF Twin defines the actual current and voltage requirements per motor for the vehicle\'s expected flight regime. This gives a precise specification for ESC selection — and can show whether the chosen ESC operates in its efficient zone under normal operation.' },
+  fc:{ name:'Flight Controller', stat:'Weeks → seconds per iteration', subtitle:'Control algorithms, mission and pilot training', challenge:'Control algorithms are calibrated iteratively through physical flight tests — days to weeks per configuration. Pilot training requires a physical vehicle. Optimal flight path is never calculated. The pilot flies on experience; the autonomous algorithm is calibrated to "doesn\'t crash", not "flies optimally".', solution:'FF Twin calibrates control algorithms digitally in seconds — no physical flight required. Pilots can train in simulator months before the vehicle is built. Optimal flight path is calculated automatically per mission, including use of wind conditions and optimal altitude.' },
+  cargo:{ name:'Payload', stat:'Custom configuration per order', subtitle:'Placement, weight and mission-specific optimization', challenge:'Cargo is placed where there is space — not optimally. It changes the motor load distribution and reduces efficiency under load. One standard vehicle is sold to all customers with all cargo types. No one calculates whether it is optimal.', solution:'FF Twin calculates optimal payload placement per mission and cargo weight. This enables a custom-configured vehicle per customer order — 95% base platform, 5% adjustment calculated in minutes. A service you can sell.' },
+  interactions:{ name:'Aerodynamic Interactions', stat:'~80% of developers ignore this', subtitle:'Propeller-to-propeller inflow interference', challenge:'~80% of drone developers assume propellers are independent and calculate them individually. This is wrong. Inflow interference causes 10–70% efficiency loss depending on design. The loss is invisible because the control system always compensates automatically.', solution:'Dynamic inflow modelling for multirotor systems is Finn Matras\' core research area — published in The Aeronautical Journal and Wind Energy Science (2025). FF Twin is the only available platform that calculates these interactions precisely for your specific design.' }
+};
+const PLAY_ORDER = ['propellers','motors','arms','body','battery','esc','fc','cargo','interactions'];
+
+let activeComp = null;
+let currentVehicle = 'multirotor';
+let playInterval = null;
+let playIndex = 0;
+
+// Tooltip
+const tooltip = document.getElementById('svg-tooltip');
+function showTip(name, e){ tooltip.textContent=name; tooltip.classList.add('visible'); moveTip(e); }
+function moveTip(e){ tooltip.style.left=(e.clientX+14)+'px'; tooltip.style.top=(e.clientY-28)+'px'; }
+function hideTip(){ tooltip.classList.remove('visible'); }
+
+function getCompName(id){
+  const ov=(COMP_OVERRIDES[currentVehicle]||{})[id];
+  return (ov&&ov.name)||COMPONENTS[id]?.name||id;
+}
+
+function renderInfo(id){
+  const ci=document.getElementById('comp-info');
+  const base=COMPONENTS[id]; if(!base) return;
+  const ov=(COMP_OVERRIDES[currentVehicle]||{})[id]||{};
+  const c=Object.assign({},base,ov);
+  const faded=VEHICLE_FADE[currentVehicle].includes(id);
+  const vName={multirotor:'Multi-rotor',fixedwing:'Fixed Wing / VTOL',rocket:'Rocket'}[currentVehicle];
+  ci.innerHTML = faded
+    ? `<div style="margin-bottom:14px"><div class="comp-name">${c.name}</div><div class="comp-subtitle">${c.subtitle}</div></div><div class="na-banner">Not applicable for ${vName} vehicles</div>`
+    : `<div style="margin-bottom:14px"><div class="comp-name">${c.name}</div><div class="comp-stat">${c.stat}</div><div class="comp-subtitle">${c.subtitle}</div></div><div class="info-divider"></div><div class="info-section challenge"><div class="section-label">The challenge today</div><div class="section-text">${c.challenge}</div></div><div class="info-section solution"><div class="section-label">FF Twin solution</div><div class="section-text">${c.solution}</div></div>`;
+  ci.style.animation='none'; ci.offsetHeight; ci.style.animation='';
+}
+
+function highlightSVG(id){
+  const p=document.getElementById('drone-panel');
+  p.className='drone-panel'; if(id) p.classList.add('active-'+id);
+  document.querySelectorAll('.svg-label').forEach(el=>{
+    const isActive=el.getAttribute('data-for')===id;
+    el.style.fill=isActive?'var(--orange)':'';
+    el.style.opacity=isActive?'1':'';
+  });
+}
+
+function updatePills(id){
+  document.querySelectorAll('.comp-pill').forEach(p=>p.classList.toggle('active',p.dataset.comp===id));
+}
+
+function selectComponent(id){
+  activeComp=id;
+  highlightSVG(id);
+  updatePills(id);
+  renderInfo(id);
+}
+
+function applyVehicle(){
+  const faded=VEHICLE_FADE[currentVehicle];
+  document.querySelectorAll('.comp-pill').forEach(pill=>{
+    const c=pill.dataset.comp; if(c==='overview') return;
+    pill.classList.toggle('faded', faded.includes(c));
+    const lbl=(VEHICLE_PILL_LABELS[currentVehicle]||{})[c]||DEFAULT_PILL_LABELS[c];
+    if(lbl) pill.textContent=lbl;
+  });
+  document.getElementById('views-multirotor').classList.toggle('hidden', currentVehicle!=='multirotor');
+  document.getElementById('views-fixedwing').classList.toggle('hidden', currentVehicle!=='fixedwing');
+  document.getElementById('views-rocket').classList.toggle('hidden', currentVehicle!=='rocket');
+}
+
+// Vehicle buttons
+document.querySelectorAll('.vehicle-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    currentVehicle=btn.dataset.vehicle;
+    document.querySelectorAll('.vehicle-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    applyVehicle();
+    if(activeComp && VEHICLE_FADE[currentVehicle].includes(activeComp)) selectComponent('overview');
+    else if(activeComp) renderInfo(activeComp);
+  });
+});
+
+// Register SVG groups for all views
+function registerGroups(svgEl){
+  if(!svgEl) return;
+  svgEl.querySelectorAll('.drone-group').forEach(g=>{
+    const id=g.dataset.comp;
+    g.addEventListener('click',(e)=>{ e.stopPropagation(); if(!VEHICLE_FADE[currentVehicle].includes(id)) selectComponent(id); });
+    g.addEventListener('mouseenter',(e)=>{ if(!VEHICLE_FADE[currentVehicle].includes(id)) showTip(getCompName(id),e); });
+    g.addEventListener('mousemove', moveTip);
+    g.addEventListener('mouseleave', hideTip);
+  });
+  // Background click → overview
+  svgEl.addEventListener('click',()=>selectComponent('overview'));
+}
+['mr-top','mr-persp','fw-top','fw-persp','rkt-top','rkt-persp'].forEach(id=>registerGroups(document.getElementById(id)));
+
+// Pills
+document.querySelectorAll('.comp-pill').forEach(pill=>{
+  pill.addEventListener('click',()=>{ if(!pill.classList.contains('faded')) selectComponent(pill.dataset.comp); });
+});
+
+// Play button
+const playBtn=document.getElementById('play-btn');
+const playStatus=document.getElementById('play-status');
+playBtn.addEventListener('click',()=>{
+  if(playInterval){
+    clearInterval(playInterval); playInterval=null;
+    playBtn.classList.remove('playing');
+    document.getElementById('play-icon').textContent='▶';
+    document.getElementById('play-label-txt').textContent='Auto-play';
+    playStatus.textContent='Cycles through all components';
+  } else {
+    playBtn.classList.add('playing');
+    document.getElementById('play-icon').textContent='■';
+    document.getElementById('play-label-txt').textContent='Stop';
+    const valid=PLAY_ORDER.filter(c=>!VEHICLE_FADE[currentVehicle].includes(c));
+    playIndex=0; selectComponent(valid[0]);
+    playStatus.textContent=`1 / ${valid.length} — ${getCompName(valid[0])}`;
+    playInterval=setInterval(()=>{
+      const v=PLAY_ORDER.filter(c=>!VEHICLE_FADE[currentVehicle].includes(c));
+      playIndex=(playIndex+1)%v.length;
+      selectComponent(v[playIndex]);
+      playStatus.textContent=`${playIndex+1} / ${v.length} — ${getCompName(v[playIndex])}`;
+      if(playIndex===v.length-1){
+        setTimeout(()=>{ clearInterval(playInterval); playInterval=null;
+          playBtn.classList.remove('playing');
+          document.getElementById('play-icon').textContent='▶';
+          document.getElementById('play-label-txt').textContent='Auto-play';
+          playStatus.textContent='Cycles through all components';
+        },2800);
+      }
+    },2800);
+  }
+});
+
+// Init
+applyVehicle();
+selectComponent('overview');
+</script>
+</body>
+</html>

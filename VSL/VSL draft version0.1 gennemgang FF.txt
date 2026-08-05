@@ -1,0 +1,1144 @@
+00;00;03;11 - 00;00;04;24
+Speaker 1
+Og jeg citerer igen.
+
+00;00;04;26 - 00;00;11;12
+Speaker 2
+Så den vinkling er meget i retning af at lave er en forbedret version.
+
+00;00;11;14 - 00;00;14;17
+Speaker 1
+Jeg er dem som vil gå fra version 1 til version 2.
+
+00;00;14;19 - 00;00;39;02
+Speaker 2
+Ja for lige hvad de måske ikke har samme performance, samt som de gerne vil have som de forventer de skal få, er med min erfaringer. Der er mange som ikke ved hvad de skal forvente. Jeg var laver noget i version 2 der er sådan cirka og så gik det ikke. Den kan lige præcis som i så mange andre. Men ok den kan ikke lige præcis det vi gerne vil og laver en ny drone, så har du ikke en konkret forventning, de har et ønske.
+
+00;00;39;02 - 00;00;47;11
+Speaker 2
+Forvent at jeg ønsker mig det, vi gerne vil opnå, men jeg har ikke en forventning om, hvordan du ønsker og ikke vil, når du skal derud.
+
+00;00;47;11 - 00;01;05;21
+Speaker 1
+Og så lige et spørgsmål Et ensidigt skridt til det der. Men så alligevel. Her er der nogle standard værdier man bør kunne forvente og holde sig op imod, når man for eksempel laver en. Hvis nu man bygger nogle selv når man bygger rationelt, er der sådan nogle standarder, hvor man kan sige jamen som minimum så skal den kunne det her.
+
+00;01;05;21 - 00;01;26;20
+Speaker 1
+Eller Reign er jo dynamisk eller et eller andet. Det er jo lidt det samme i min branche. Der ved folk heller ikke hvad kan vi forvente som kampagne åbnings rater og kick rater i hvor mange ligesom så mange ting. Så alle spørger hvad gør andre og hvem? Hvad opnår andre resultater? Men der jo, der kan man godt se nogle benchmarks om hvordan man kan lave benchmarks inden for det her.
+
+00;01;26;22 - 00;01;30;01
+Speaker 1
+Ja, men der er ikke nogen i dag.
+
+00;01;30;04 - 00;01;31;15
+Speaker 2
+Ved.
+
+00;01;31;18 - 00;01;33;04
+Speaker 1
+Fordi dem.
+
+00;01;33;07 - 00;01;43;24
+Speaker 2
+Der benchmark ikke mig var De andre har kom op og så kunne bærbaren kun grafisk design og så forvente mange fra omtrent samme performer som programmer.
+
+00;01;43;27 - 00;02;04;14
+Speaker 1
+Jeg tænker faktisk dem, og det er stadigvæk et sidespring. Men men det er jo noget af det. Sige den dag vi har 100 kunder på platformen, ja hvis vi så kan stå bag ved og have noget data ud og så sige hjem gennemsnitlig, ja så har de hundrede firmaer, der har bygget 150 kroner i systemet, de har opnået det her.
+
+00;02;04;17 - 00;02;22;14
+Speaker 1
+Så derfor så kan du kun benchmarke din egen ting op imod enhver har det afsnit på vores platform. Der opnår man det her. Ja. Og det er jo noget man kan tage ud af helheden, men man kan godt putte på den enkelte sim ind i. I skal kunne gøre det bedre, fordi lige nu så I bagud.
+
+00;02;22;16 - 00;02;29;28
+Speaker 2
+Ja, og det skal også i lige præcis. Og hvilken taler dog har været nemmere for dem.
+
+00;02;30;01 - 00;02;41;24
+Speaker 1
+Og jeg tænker faktisk ikke, at det ville gøre så meget, fordi de fleste er ikke en direkte konkurrent på A2B. Nej. De har alle sammen en forskellig mission med deres drone.
+
+00;02;41;24 - 00;02;42;28
+Speaker 2
+Og derfor.
+
+00;02;43;00 - 00;02;56;02
+Speaker 1
+Jeg en cargo drone. Du er en. Du flyver rundt og tager billeder, Du flyver og de har alle sammen forskellige ting, så derfor gør det ikke så meget at vi benchmark data siger. Men du du de tre procent under.
+
+00;02;56;05 - 00;03;01;15
+Speaker 2
+Og eller højere er. Ja, det var det.
+
+00;03;01;18 - 00;03;08;02
+Speaker 1
+Du bare lige sidespring med det. Det betyder, at vi godt vil kunne bruge data til andre lande, som på tværs.
+
+00;03;08;05 - 00;03;34;01
+Speaker 2
+Er rigtig godt i forhold til det, vi gerne vil fortælle om De har et problem er en nem måde. Kan dig på den, at der er droner på den ene vej, så stem og så kan vi sige Og kan man. Vi kan godt se, at der er nogle der flyver skal fedt man især da den andre befolkning og de er briterne i forhold til andre droner og der mange konkrete.
+
+00;03;34;08 - 00;03;34;24
+Speaker 1
+Er.
+
+00;03;34;26 - 00;03;48;15
+Speaker 2
+Hvorfor de har et problem bliver kommer i har et problem, der. Ja, jeg ved godt det risikoen viser at der er. Men vi kan sammenligne deres morgenmad med andre droner, og i har faktisk en dårlig drone, der er absolut.
+
+00;03;48;16 - 00;04;12;06
+Speaker 1
+Men jeg tænker næsten en og samme den over mod andre stater. Helt sikkert. Men jeg tænker hvis hvis du får en virksomheds droner ned i vores system allerede der, så vil du kunne begynde og vise jeg kan optimere 17 procent alene på spillet. Når vi tager batteriet med hjem, så kan vi. Den kan også optimere, så den samlede pakke, som jeg ser der, ikke optimere for 14 procent, hvad ved jeg?
+
+00;04;12;08 - 00;04;19;29
+Speaker 1
+A Og det er det. Det er jo bare på deres ved at komme ind i din algoritme og det helt uden som benchmark op mod handler.
+
+00;04;20;04 - 00;04;23;03
+Speaker 2
+Så efter kan meget vel også.
+
+00;04;23;06 - 00;04;42;03
+Speaker 1
+Så vi skal jo på en eller måde i den der vi har. Selv når vi sidder og snakker om den. Det blev både i forhold til generelt, men også på deres egen. Og så igen sidespring. Jeg ved ikke lige, hvordan vi. Det er jo det der med at fortælle dem, at vi har et system, der kan hjælpe dem hjem.
+
+00;04;42;03 - 00;05;00;05
+Speaker 1
+Men nogle gange så skal de jo så prøve dig for at finde ud af, om tallene rent faktisk er bedre om jer. Men dem, det må vi jo finde en løsning på. Og så hvordan de får testet det. Ja og bruge deres egen self. Men stadigvæk måske uden og uden at gå i gang med deres ydre.
+
+00;05;00;07 - 00;05;28;04
+Speaker 2
+Ja det man tænker på der også i forhold til hvis vi vil bo der. Vi kan se at vi kan optimere på moderne måde og tager design lidt let. Inde var Padborg og så kan de beregningerne. Vi har derfor kunne præsentere der for alle der vil har måske haft før, og der kan en fast kontakt, for vi har ikke at kigge på deres egen boblere.
+
+00;05;28;07 - 00;05;33;00
+Speaker 2
+Jeg tror faktisk vi har lært meget til en for at forbedre.
+
+00;05;33;02 - 00;05;36;27
+Speaker 1
+Er jo lettere, men det kan du jo typisk ikke få fat i, inden du kommer frem til guldet.
+
+00;05;36;29 - 00;05;49;22
+Speaker 2
+Men har vi ledere? Jo jo, men altså. Fordi der rundt om som gratis analyse, så har vi det. Og nej.
+
+00;05;49;25 - 00;05;56;01
+Speaker 1
+Vi gider ikke lave noget gratis. Men men derfor kan det godt være, at.
+
+00;05;56;04 - 00;06;02;18
+Speaker 1
+Jeg kan hvad der kan være sådan en eller andet self et eller andet brugt til os. Dine talenter og newcomers i din tilbudte.
+
+00;06;02;18 - 00;06;04;26
+Speaker 2
+Liga er lækkert.
+
+00;06;04;28 - 00;06;07;25
+Speaker 1
+Det ved jeg ikke om om.
+
+00;06;07;27 - 00;06;21;09
+Speaker 2
+Jeg vender mod at vi må gøre dejlig. Har nogle tal så man kan se det på den i der spare en masse. Og lave forbedret.
+
+00;06;21;12 - 00;06;48;07
+Speaker 1
+Men men jeg tror den løser sig selv ved at når først vi får et par kunder både vores lettere vi internt dem i Brøndby, dem i Trondheim. Måske ligger et eller andet i dem på de to andre på de to. Når først vi har fået nogle kunder igennem og ind og bruge vores platform, så løser det sig selv, fordi så kan vi sige jamen når vi sammenligner med andre, som er kommet ind på løsning, ja så har de forbedret sig sådan at det for hver ny os igen.
+
+00;06;48;10 - 00;07;01;26
+Speaker 1
+Så det der med at ja, når der er vel? Hvis du bliver nysgerrig, så må du ind i systemet og så de andre har kunne forbedre. Det kan du nok også, men jeg tror det er den måde vi skal produkt på.
+
+00;07;01;29 - 00;07;02;25
+Speaker 2
+Ja, tilbage til den.
+
+00;07;03;02 - 00;07;04;10
+Speaker 1
+Før.
+
+00;07;04;12 - 00;07;16;09
+Speaker 2
+Jeg selv. Den udvikling med mange man ikke nødvendigvis forstår, hvorfor man ikke får dem. Og der er ikke andre problemer med manglende ved at de har et problem.
+
+00;07;16;11 - 00;07;19;08
+Speaker 1
+Er.
+
+00;07;19;10 - 00;07;43;24
+Speaker 2
+Med til at tage op og bygge noget der flyver. Det er jo fint at. Der er også det med at det tager sin tilgang til langt over er, at der er noget vi kan hjælpe med. Mange at det tror jeg gerne kunne nå at tage. Ja ja, en måned af vores system. Ja ja ja.
+
+00;07;44;01 - 00;07;47;05
+Speaker 1
+De sparer noget tid på ja, på den første.
+
+00;07;47;10 - 00;08;23;04
+Speaker 2
+Ja. Ja, det er også helt fint med de optimale komponenter en af gangen og stole på der der problem tit. Så er der lavet distraktioner og døgnfluer, men for mig som beregnet er der nu igen. De har jo ik lige beregnet det ved ik de var bare runde flyver man måske ikke lige som de vil da nu. Der mangler man i hvert ikke hvorfor at er din.
+
+00;08;23;06 - 00;08;30;09
+Speaker 1
+Du sagde dem i Brøndby. Hvad var de havde lavet før at når de med erfaring inden for fly eller.
+
+00;08;30;09 - 00;08;31;25
+Speaker 2
+Jeg fik mig gang i gang og piloter.
+
+00;08;31;25 - 00;08;37;26
+Speaker 1
+Og så til de ved godt lidt om hvad de kan forvente, hvordan ting flyver.
+
+00;08;37;28 - 00;08;44;02
+Speaker 2
+Ja, de har lavet et design baseret på inspiration fra andre byer.
+
+00;08;44;04 - 00;08;45;06
+Speaker 1
+Jeg sidder bare og tænker med den.
+
+00;08;45;06 - 00;08;46;20
+Speaker 3
+Der.
+
+00;08;46;23 - 00;08;52;07
+Speaker 1
+Brune flyver, men på former ikke som beregnet.
+
+00;08;52;09 - 00;09;02;28
+Speaker 2
+Det problem jeg løste, fordi det var de ved ikke hvordan man skabte, når jeg kom ind og skulle beregne, hvordan jeg har designet noget de tror og hvor skal jeg kom ind og være placeret.
+
+00;09;03;00 - 00;09;11;14
+Speaker 1
+Mellem og det også det jeg vil lidt hen til, alt efter hvad erfaring man har. Ja, jeg kan. Jeg kan godt stå og kigge på min knægt dronen den.
+
+00;09;11;14 - 00;09;13;20
+Speaker 2
+Flyver.
+
+00;09;13;22 - 00;09;29;27
+Speaker 1
+Og hvis du vil se om det flyver mig. Men jeg ved jo ikke om om den faktisk flyver dårligt. Jeg kan bare se, at den letter og flyver derhen, hvor jeg gerne vil lande. Men jeg ved jo ikke, om den kunne have gjort det dobbelt så hurtig eller brugt meget mindre energi og alt muligt andet, hvis hvis vi har gjort et eller andet ved den.
+
+00;09;30;00 - 00;09;38;28
+Speaker 1
+Ja, jeg kan bare sige den flyver nu, jeg er tilfreds og det er mere den der med hvordan. Hvad tid viser de selv at de har faktisk at bygge noget der er godt?
+
+00;09;39;00 - 00;10;09;20
+Speaker 2
+Ja, det gør jeg ikke. Nej, der er ligesom det er lidt ligesom at kunne designe runde dronen, Gør hvad de vil, så er den koster ikke også meget at der bliver bare tilbehør, så som. Det her så det er os der får problemer. De vil ikke selv nok og det skal forvandles. Og mere end jeg har designet, som fungerer for nok nok.
+
+00;10;09;23 - 00;10;16;13
+Speaker 2
+De ved det ikke. Jeg har ikke noget at sammenligne med det. Ved ikke om jeg flyver som beregnet.
+
+00;10;16;15 - 00;10;27;13
+Speaker 2
+Jeg har valgt at være vinkling et den som bare den mangler. Og ja de har ikke alt. Ja, de har måske beregnet lidt, men ikke nok til at.
+
+00;10;27;16 - 00;10;31;28
+Speaker 1
+Der er så de der får et stort træ, de kan godt blive uddybet lidt i forhold til de ting.
+
+00;10;31;28 - 00;11;10;01
+Speaker 2
+Og så er jeg der at den drone flyver manden er måske ikke som de vil, er der måske godt nok? Og punktur er fint. Der. Er beslutning for dig som du den opfinder er der. Der den er også der redder os fra de trygge rammer. Der er mange som laver hvad som du gør, og det er smukt. Og så vil de heller danskere skulle leveres på nogle punkter og så ved ikke hvor vi skal starte med og hvad de skal lave for at opnå de ting.
+
+00;11;10;04 - 00;11;21;02
+Speaker 2
+Så nej den er rigtig go og så er der også rigtig go ved os som vores.
+
+00;11;21;04 - 00;11;36;22
+Speaker 1
+Tag er med, nemlig. Og træerne der fysisk testet dyrt og langsomt. Hvert forsøg koster tid og penge, men også lidt til dem der bruger noget de har brugt indtil tre år og som jeg selv. Men Version2 lyver. Hvad? Det går hurtigere? Ja koster stadigvæk lang tid.
+
+00;11;36;24 - 00;11;45;01
+Speaker 2
+Og skal man det? Vi ser på alt og alle er ok.
+
+00;11;45;04 - 00;11;47;02
+Speaker 1
+Og så begynder at komme noget salgspotentiale.
+
+00;11;47;02 - 00;11;53;18
+Speaker 2
+Ja, og så er der nogle der gerne en vinkling med at.
+
+00;11;53;20 - 00;12;00;05
+Speaker 2
+Vi kan vælge hvorfra man kommer, der giver en beregnet direkte beregner ved de vellykkede fronter.
+
+00;12;00;07 - 00;12;02;17
+Speaker 1
+Ligesom som jeg forstår det og de bruger med vi generelt.
+
+00;12;02;17 - 00;12;06;21
+Speaker 2
+Men det er måske mere den den opfører sig ikke som de kun vil.
+
+00;12;06;23 - 00;12;08;01
+Speaker 1
+Eller gerne vil eller ønsket.
+
+00;12;08;02 - 00;12;34;20
+Speaker 2
+Jeg er lige præcis den nu med at koble danskerne op til det format og ikke er koblet direkte til det design, så vi stadig nok skal rette. Er der nogen der har det bare NASCAR og hvad laver de? Noget som overhovedet ikke hænger sammen og nødvendigvis. Og så er det et problem, fordi så får det ikke opfyldt sin mad, men designet er og skal det ind og lave 2 og 3 og 4.
+
+00;12;34;22 - 00;12;56;11
+Speaker 1
+Men men men det synes jeg også er lidt. Lige det der synes jeg er lidt insane. Du sidder og siger at de ønsker et eller andet. Så har de stået og designet et eller andet, fordi de synes det ser fedt ud eller de tror på det virker og så ender de med en eller anden drone version 1,0 som godt nok flyver.
+
+00;12;56;13 - 00;13;20;23
+Speaker 1
+Men det er jo også altså i mange andre dele af verdenen, når du skal producere et eller andet. Du går jo ud fra et eller andet ønske og så der dog en basal viden omkring nogle ting. Det er så det der med at sige Jeg ønsker en drone der skal kunne løfte 360 kilo og flyve fra A til B på 17 minutter.
+
+00;13;20;25 - 00;13;30;16
+Speaker 1
+Hvis man først begyndte at putte det ned i formen og inden ja, så kunne det godt ske at man ville ha sagt det ønske du har. Det er ikke realistisk som sådan. Jeg altså selv.
+
+00;13;30;18 - 00;14;05;20
+Speaker 2
+Mangler. Man kan ikke regne på det som ret, når der er sket det er problemet og glæder mig til en vinder som beregner på batteri størrelse og så beregner man størrelse og hvordan man motoren og så man ikke kigger på hvordan hænger det sammen nok og størrelsen på vingerne. Og ja man kan jo godt nemt beregn det skal lige kunne enkelthederne så ved at problemet er og der vi ca.
+
+00;14;05;22 - 00;14;14;14
+Speaker 2
+Der er sat en anden skal også have direkte er koblet op mod design, som fungerer som en helhed og ikke separat.
+
+00;14;14;16 - 00;14;40;16
+Speaker 1
+Jeg tror måske endda jeg vil frem til det er at lige nu så sidder de og og stejler lidt på på et blankt stykke papir, fordi du har ikke nogen benchmark. Du har ikke nogen nogle tal og nogle beregninger tidligere, så har sådan lidt min mavefornemmelse. Jeg tror sådan og sådan. Og ja, og så prøve at designe eller når først vi begynder at få flere kunder og flere modeller igennem, når der begynder at komme noget.
+
+00;14;40;19 - 00;15;10;01
+Speaker 1
+Så starter man jo et andet sted, fordi så har du en masse viden om hvordan virker de her 7 dele vi skal bruge, hvordan bruger de samlet? Og hvem har ellers erfaring med at lave noget fint om der er nogen derude i den anden branche, Det kan vi godt tage noget af og blive inspireret og det der kan blive inspireret hos os nogen sol og vind i vores system, så har du måske en en grund struktur der gør at når du så ønsker et eller andet, så starter du på et mere oplyst grundlag og langt længere fremme i processen end du normalt ville ha gjort.
+
+00;15;10;04 - 00;15;16;12
+Speaker 1
+Ja, det er selvfølgelig lidt projekt, men altså også bare for en forståelse af hvor er det?
+
+00;15;16;12 - 00;15;40;29
+Speaker 2
+Kan man så ikke også lære kommende op mod og stemme viden og udvikling i forhold til det runde design? Ja, jeg har den erfaring. Og så skal man jo lære, at for. Nu skal der lige er kurser som ligger der en runde, og så er det vigtigt tingene og erfaringen vi har fået fra farlige designere. Vi har.
+
+00;15;40;29 - 00;15;49;21
+Speaker 1
+Lavet. Og så trin et hooket der er sådan set ogå. Men jeg kan godt nuancere det lidt med ja.
+
+00;15;49;23 - 00;16;06;21
+Speaker 2
+Og specielt det med det. Man bruger mere energi end beregnet, men det er ikke nødvendigt i arbejdet. Nej da, Når man ja, det vil måske ikke hjælper det skal på vandt. Når du har lavet noget som ikke er i forhold til de andre, er det vi vil gerne lave. Vi har kompetencerne direkte og design.
+
+00;16;06;21 - 00;16;11;23
+Speaker 1
+Er som beregnet. Her er sådan set lidt den, fordi der er de ikke helt endnu. Nej ok.
+
+00;16;11;25 - 00;16;23;27
+Speaker 2
+Latterligt ofte sagde ikke noget om rammen er altså et andet alternativ. At den er lidt.
+
+00;16;23;29 - 00;16;25;19
+Speaker 2
+Den er bare teknisk.
+
+00;16;25;21 - 00;16;27;05
+Speaker 1
+Er.
+
+00;16;27;07 - 00;16;44;15
+Speaker 2
+At det er lidt teknisk og den åbner også for rigtig mange spørgsmål. Er der noget man går fra? Det forekommer mig, at har du dokumentation på det? Og ja, er.
+
+00;16;44;18 - 00;16;56;26
+Speaker 2
+De er der blandt de bedste, der er bedre. Den er også at den er nemmere at forklare, bekræftet fra alle op til teori.
+
+00;16;56;28 - 00;17;03;28
+Speaker 1
+Altså den sidder ned når jeg oplever stress % Ja.
+
+00;17;04;01 - 00;17;14;10
+Speaker 2
+De der små sandaler. Grunden til at jeg startede med, men det er derfor de er sindsygt meget og der er ingen grund Og det der er en vigtig ting.
+
+00;17;14;15 - 00;17;15;24
+Speaker 1
+Er bestem.
+
+00;17;15;27 - 00;17;22;03
+Speaker 2
+Så ja. Den den kan man måske få. Den er nem at forklare. De 60%.
+
+00;17;22;03 - 00;17;23;16
+Speaker 1
+Var det fra.
+
+00;17;23;19 - 00;17;27;15
+Speaker 2
+De kom fra helikopter er der den luft der er det?
+
+00;17;27;15 - 00;17;28;09
+Speaker 1
+Det er propellen.
+
+00;17;28;11 - 00;17;48;11
+Speaker 2
+Jeg er så heldig at have karakter af sten i luften så tæt på som den reagerer. Den gør så kun til at accelerere luften. Den. Der da den kom frem og det er bevist og der målt og er.
+
+00;17;48;14 - 00;18;08;28
+Speaker 1
+Vil det være om? Hvordan skal jeg formulere det spørgsmål Vil det være På de fleste droner vil det altid være propellen, der er den største energi forbruger, nærmest uanset hvordan de har designet og placeret propellerne og alt mulig andet.
+
+00;18;09;01 - 00;18;14;19
+Speaker 1
+Så vi kan godt regne med den nederste der hvor de 60% det sådan rimelig gældende på stort set alle droner.
+
+00;18;14;24 - 00;18;15;16
+Speaker 2
+Ja.
+
+00;18;15;19 - 00;18;23;06
+Speaker 1
+Og hvis de ikke har den del optimeret selv, så er der simpelhen så store forbedringsmuligheder, bare alene på at vi kigger på propellerne og hvordan.
+
+00;18;23;08 - 00;18;28;23
+Speaker 2
+Jeg placerer på de forkerte i 60%. Jeg vil også om størrelse og placering er.
+
+00;18;28;25 - 00;18;38;29
+Speaker 1
+Men men placeringen af dem så vi allerede over pile i deres design, fordi hvis de er sat ind på en bestemt måde, hvis jeg ikke konstruerer det, så skal de måske ret langt tilbage i deres design fase for at konstruere noget.
+
+00;18;38;29 - 00;19;01;20
+Speaker 2
+Det er der virker. Vi kan ikke med controlleren, gør det med det man laver. Altså kan man også uden problemer hvis der mangler 80 rammer glas. Men hvis jeg har 16, så kan man gå ind og se om det er og der ikke kan ramme på noget som stort. De har fx 16 propeller og der kan man gå ind og når vandring.
+
+00;19;01;23 - 00;19;08;20
+Speaker 1
+Men men men jeg tænker stadigvæk på. Hvis du virkelig skal optimere, så skal du helt ind og ændre på placeringen af.
+
+00;19;08;20 - 00;19;11;18
+Speaker 2
+Dem og størrelsen er.
+
+00;19;11;21 - 00;19;31;12
+Speaker 1
+Så du skal turde gå nogle skridt tilbage i dine design faser. Når du først får målt, er. Og det er jo nok det der er problemet. Tænker ved. Forestil at du får fat i nogle sammen som var by brugt to 3 år på at komme til et sted, og så tager jeg ud til dem og siger til dem Finde mig og bygge det her system.
+
+00;19;31;14 - 00;19;48;12
+Speaker 1
+Skal vi ikke lige beregne om hvordan jeg ser og så finde ud af om. Vi kan faktisk forbedre dem vanvittig meget. Men I skal lige gå halvandet år tilbage og så skal I rekonstruere designet af jeres drone, og så skal bygninger hjem. Der er nok nogen, der vil sige.
+
+00;19;48;17 - 00;19;50;22
+Speaker 2
+Og jeg.
+
+00;19;50;24 - 00;19;52;04
+Speaker 1
+Kunne jeg forestille mig det.
+
+00;19;52;07 - 00;19;56;04
+Speaker 2
+Dog så det kommer også an på.
+
+00;19;56;04 - 00;19;58;09
+Speaker 1
+Fordi så kan det blive til deres version.
+
+00;19;58;12 - 00;20;11;18
+Speaker 2
+Ja, så er der ting vi siger og gør. Hvis vi vil have det her i forbedring. Der sker i relevante mekanismer jeg bare skal få pallerne bedre. Så for i det her vejr.
+
+00;20;11;20 - 00;20;33;10
+Speaker 1
+Ja så selv spise ville være at sige hvis i ville ha den fulde pakke, så skal vi have rekonstrueret designet på en drone. Hvis vi vil holde fast i det I har nu, så kan I opnå en mindre forbedring. Men vi kan stadigvæk forbedre det bare ved at gøre som med propellen, og der er nok nogen der vil ty til den, fordi de skal lige til at begynde at tjene penge inden de skal tilbage og i.
+
+00;20;33;12 - 00;20;39;07
+Speaker 2
+Men nu skal jeg måske skifte batteriet og jeg har en helt masse småting.
+
+00;20;39;09 - 00;21;02;11
+Speaker 1
+Når det er en ret interessant problemstilling. Det er igen det der med, at du ikke ved, hvad du ikke ved, hvis vi kommer oplyser dem, så er der nogle investorer, nogle lande der bliver. Men så vil man hellere bare have et eller andet gjort færdig. Ellers jamen så tager vi den lille pakke nu, og så bliver det den store pakke til vores kontor.
+
+00;21;02;13 - 00;21;21;28
+Speaker 2
+Været fra var vi i Brøndby? De. De er også interesseret i. Jeg vil arbejde med nogen, som har erfaring, når vi skal håndtere store jordstykker. Vi tager ikke så godt se, at de arbejder med det. Det er der med. Men nu er det klart almanakken software så sat os bedre i forhold til det var stor.
+
+00;21;21;29 - 00;21;31;14
+Speaker 1
+Så du siger faktisk ved om de bruger vores system så kan de nemmere selv få investorer til at putte, fordi de har en optimal måde at bygge deres rum på.
+
+00;21;31;14 - 00;21;33;25
+Speaker 2
+Det har de med software.
+
+00;21;33;28 - 00;21;34;24
+Speaker 1
+Og kalde det det.
+
+00;21;34;26 - 00;21;46;02
+Speaker 2
+Eller de beboere, som egentlig ofte siger de har hvad du vil have. Deres design er en og så så det behøver det aktivt selvfølgelig.
+
+00;21;46;04 - 00;21;49;08
+Speaker 1
+Men men det Jeg synes bare det er ret interessant, for salgs betyder.
+
+00;21;49;11 - 00;21;51;04
+Speaker 2
+Ja.
+
+00;21;51;06 - 00;21;55;23
+Speaker 1
+At hvis de bruger et.
+
+00;21;55;26 - 00;21;59;17
+Speaker 2
+Ja, der er mig fordi jeg får mere penge. Ja ja ja.
+
+00;21;59;19 - 00;22;19;03
+Speaker 1
+Men jeg sidder og tænker på hvordan vi kan blive noget certificeret inden for bank. Du ved der jo i 2020 ting og alle mulige andre certificeringer. Det der med at få vores system ind og blive serviceret således at vi bruger det system, det er vigtigt at kunne sige det, når de selv skal ud til deres. I den store som penge til at sige Vi vil vil lave verdens største taxi drone firma om bord i det deres system.
+
+00;22;19;03 - 00;22;20;18
+Speaker 1
+Ja det gør vi da.
+
+00;22;20;24 - 00;22;23;23
+Speaker 2
+Var bange for at vi.
+
+00;22;23;26 - 00;22;40;27
+Speaker 1
+Hver at hvilken vej vi nok lige lidt fra. Men ja det vi ville jo ind og være standard i den her branche, så der skal være forskel på om man bruger vores system eller om man har gjort det selv, og den ved jeg ikke lige. Det er først noget jeg lige tænker på nu mere.
+
+00;22;40;29 - 00;22;45;04
+Speaker 2
+Der er i det. Jeg ved ikke om der findes nogen.
+
+00;22;45;07 - 00;23;04;16
+Speaker 1
+Sager der har rundt sig, det ved jeg ikke, men vi skal jo bare have gjort vores system til standard i branchen. Så snart vi kan begynde at få det, så kan folk begynder at sige vi bruger FF. Jeg vil derfor syntes om dem. Nok interessant?
+
+00;23;04;19 - 00;23;13;28
+Speaker 2
+Ja så må det er der to af.
+
+00;23;14;01 - 00;23;26;06
+Speaker 2
+Jeg kigger på det med kontrolsystemet, da det skjuler lige de problemer der er i systemet. Er.
+
+00;23;26;09 - 00;23;31;12
+Speaker 1
+Men men men, det er jo ikke rigtig noget man kan gøre noget ved. Og så.
+
+00;23;31;14 - 00;23;42;15
+Speaker 2
+Nej, fordi hvis det drejer sig om ikke at skjule det så og så gør sig på sigt, så der er naturlige konsekvenser og der runde fyrre.
+
+00;23;42;18 - 00;23;51;18
+Speaker 1
+Men, men som jeg forstod på vores snak sidste gang, så er det også fordi, at selv den feedback de får inde i deres log.
+
+00;23;51;20 - 00;23;54;06
+Speaker 2
+Ja.
+
+00;23;54;08 - 00;23;57;26
+Speaker 1
+Så ved de ikke nok om hvad de skal kigge den log for kontrol systemet for at finde ud.
+
+00;23;57;26 - 00;23;59;22
+Speaker 2
+Af jeg.
+
+00;23;59;25 - 00;24;15;06
+Speaker 1
+Har systemet. Gjort et eller andet for at kompensere eller kan jeg faktisk gik ned i tallene, således at der nogle ting der kunne være gjort bedre. Og hvis de ikke ved hvad de skal kigge efter, så kan jeg godt forstå det. Svært at gennemskue de de tal.
+
+00;24;15;08 - 00;24;58;01
+Speaker 2
+Ja ja lige præcis det er der måske en anden model for at forstå bare hvad der sker og hvorfor. Og der ville.
+
+00;24;58;04 - 00;25;02;01
+Speaker 2
+Her.
+
+00;25;02;03 - 00;25;09;01
+Speaker 2
+Gjorde man folk så har vi jo modellen, hvor i er.
+
+00;25;09;03 - 00;25;09;21
+Speaker 1
+Helt områder.
+
+00;25;09;21 - 00;25;36;27
+Speaker 2
+Og så er der målepunkter fra dronen. Og det interessante her er jo energiforbruget. Det går jo ned med, hvad der nu er for hurtigt, og så er det bare så du bruger mindre energi, når du flyver på vandet. Ja, der er vel kilometer i timen. Tjekker om diameteren giver sig selv og laver et meget.
+
+00;25;36;29 - 00;25;38;07
+Speaker 1
+Interessant, Det er målbart.
+
+00;25;38;07 - 00;25;48;16
+Speaker 2
+Ja ja og drone piloten hvor altså nu hvor det står, så skal man stadig nå op, hvis ikke der er en effekt nok.
+
+00;25;48;18 - 00;26;00;06
+Speaker 1
+Og hvis så pilot dronen piloten. Han vidste ikke at han bruger mindre energi når han var i end mig, og det er vigtigt for at få at vide, at måske han skal starte op på en anden måde eller.
+
+00;26;00;09 - 00;26;04;13
+Speaker 2
+Jeg er dog omvendt på noget.
+
+00;26;04;16 - 00;26;15;01
+Speaker 2
+Der starter on off. Når er lige i tech noget, så skal han ikke stå stille. Vil du opleve den dårlige cirkel høre mig, så flyver.
+
+00;26;15;03 - 00;26;15;25
+Speaker 1
+Flyet i loop.
+
+00;26;15;28 - 00;26;19;26
+Speaker 2
+Jeg er varm.
+
+00;26;19;29 - 00;26;23;13
+Speaker 1
+Og det kan din beregning se, men han kunne ikke selv se det. Men men der.
+
+00;26;23;19 - 00;26;49;03
+Speaker 2
+Er jo målepunkterne er også godt sætte, Men der er ingen som tænker på at tech. Hvis ikke nogen jeg vejer og projekter og design jeg kunne også selv om og kigget efter det, så kan jeg godt se det er. Men jeg vidste ikke, og her er der jo 10 15 procent, så det kan vel. Og den effekt? Man kan jo måske bare.
+
+00;26;49;05 - 00;26;56;26
+Speaker 2
+Måske er vinden vejen, som du flyver, og derfor får du mindre energi.
+
+00;26;56;28 - 00;27;25;10
+Speaker 2
+Men du ved ikke, at den er der. Et stik? Med den er præcis, hvad jeg. Er også i forhold til det med at jeg skjuler det fint og og der ikke er så meget at give, der har man jo sat den er lige præcis den grænse, hvor man måske var også rigtig.
+
+00;27;25;12 - 00;27;38;08
+Speaker 2
+Ja så er det ok at propel, motor og batteri der. Den er også korrekt.
+
+00;27;38;10 - 00;28;02;12
+Speaker 2
+Ja så er den også fin. Er, men jeg tror der er nogle. Ja den var også fin. Der er lidt argumenter med at forskerne beregnede hele og jeg rigtig godt til i forhold til hvis man skal lave en indsat i rummet.
+
+00;28;02;18 - 00;28;17;11
+Speaker 1
+Jeg synes også. Jeg ved ikke om den er den der eller en af de andre, men. Men når du går for version ét til version to, er, så har du selvfølgelig en masse erfaringer med din drone version, hvordan den flyver og hvordan den performer.
+
+00;28;17;11 - 00;28;18;13
+Speaker 2
+Og er.
+
+00;28;18;15 - 00;28;45;26
+Speaker 1
+Altså nogle ting. Men hvis du ikke putter det ind i et system, som også, så kommer du til at gentage alle de der skjulte fejl. Hvis du ikke ved, hvordan du skulle sidde ved en bus og ikke ved hvad det er for nogle tal, der ligger ned under det i en kontrol, styrer alle de der ting. Hvis du stadigvæk kører på din mavefornemmelse, så risikerer du at tage nogle ret kritiske fejl med fra version 1 til version 2.
+
+00;28;45;29 - 00;28;56;22
+Speaker 1
+Men du så den ikke fordi. Og den flyver faktisk meget godt, og den har også fin batterilevetid, og vi gør det fra A til B. Vi skal og hjem, men man vidste ikke, om man kunne optimere med ikke så mange procenter.
+
+00;28;56;22 - 00;28;57;15
+Speaker 2
+Ja.
+
+00;28;57;17 - 00;29;01;18
+Speaker 1
+Og det har man med hele vejen videre. Hvis der kommer noget el.
+
+00;29;01;21 - 00;29;29;03
+Speaker 2
+Og det er også der med de gamle temaer og ting. Så dog en flyver måske det det vel og mærke jeg har totalt er fundet på designet og for dumt at lave, da de gerne vil. Men de vil rigtig gerne lave drømmebilleder hvis de laver sådan og som og så holder det måske længere. Er der normalt vi snakker design, så kan vi også lave produktion af et mindre batteri på lidt under med optimering i alting.
+
+00;29;29;05 - 00;29;41;21
+Speaker 1
+Og så og så plus alt efter hvor de er henne. Hvis vi får alt data fra dag for version i dag, ja så både bliver deres version 2 meget bedre, men ligger også langt hurtigere.
+
+00;29;41;23 - 00;30;11;15
+Speaker 2
+Og så og tager deres min erfaring til også lidt. Så hvis man har penge selvfølgelig så så laver man en eller tester hvis man vil forbedre designet. Men man ved ikke hvordan. Så talte meget lidt som der er på det, Men der er ikke meget designs og prøver at få et bedre design. Men lige præcis fordi man ikke ved hvordan man skal kan lave det du regner med og man gerne vil lave.
+
+00;30;11;17 - 00;30;23;01
+Speaker 2
+Det kan blive brændt og så det er jo så den den. Derudover der gælder så return to man 3-4-5.
+
+00;30;23;05 - 00;30;24;03
+Speaker 1
+Er man nemlig.
+
+00;30;24;05 - 00;30;32;18
+Speaker 2
+Aldrig usikker på. Er der designet det bedste eller kan vi optimeret lidt i forhold til produktionen af der blev tiet ihjel af.
+
+00;30;32;18 - 00;30;36;16
+Speaker 1
+Den efter nye behov? Og ja ny behov i vores mission bedst og.
+
+00;30;36;16 - 00;31;03;29
+Speaker 2
+Så hjælper det. Og så skal vi altså ved ændre på at man skal mange flere, ikke flyve lige så langt man flyve hurtigere. Og så er spørgsmålet hvordan skal y? Og så bliver der måske at putte der forskellige os der har investeret i. Ja, det er det som for mig bare kom ned på engang og så ja, og så får du prøve grænserne og design ændringerne med det samme.
+
+00;31;04;01 - 00;31;26;20
+Speaker 1
+Og jeg tænker at og det her, det har det her ikke lige så meget i forhold til version et og to og tre og altid med. Når vi programmerer software som nogle ting, så kører vi med alle mulige agile processer, og så er du sprint, og du laver hele tiden små iterationer, og du. Du udgiver hele tiden nye små løsninger i stedet for en stor lys.
+
+00;31;26;22 - 00;31;44;25
+Speaker 1
+Det gjorde man tidligere, når nu det hele tiden. Små små bits og bytes du optimere dem. Det er klart dem som har lavet version en version 2 på en udgave af den gamle metode. Den metode der findes i dag. Så går det langsomt, fordi det tager 1 til 3 år at finde det der designer for det samlede som nogle ting der.
+
+00;31;44;28 - 00;32;09;06
+Speaker 1
+Jeg tænker det vi kan få den til at se hen imod, det er når først du sidder inde i vores system, så har du optimeret selve designet. Det betyder ikke, at du godt kan lave designet om, men det er du frem til, at sidder du først ind i vores system, så kan du. Så kan du nemmere begynde at lave de der små hurtige iterationer og så sige vi har en platform der virker, Det er designet konstruktion, den virker, den skal.
+
+00;32;09;07 - 00;32;23;09
+Speaker 1
+Den blev ikke pillet ved, men jeg kan godt sidde og lave en iteration på. Hvad kan jeg gøre på propellen? Hvad kan vi gør på batteriet i forhold til at jeg har en ændret med sin base eller jeg vil lave en version to kom med et eller andet som er målrettet.
+
+00;32;23;11 - 00;32;23;27
+Speaker 2
+Det, da.
+
+00;32;23;29 - 00;32;42;23
+Speaker 1
+Den kun og ny version til den kun og ny så de ikke har som standard de sælger hundrede af, men de har en grund version og så sælger de hundrede små forskellige del af det, fordi de lynhurtigt kan gå ind og tilpasse den til hver enkelt kunde. Ønske. Og det vil de kun hvis hvis de ikke bruger vores system.
+
+00;32;42;23 - 00;32;42;29
+Speaker 1
+Så du.
+
+00;32;42;29 - 00;32;44;20
+Speaker 2
+Kan.
+
+00;32;44;22 - 00;33;14;04
+Speaker 1
+Tænke, var det også et salgsargument, at de hele tiden kan lave små versioner hele tiden og optimere den enkelte drone. Så selv forestille mig, at de havde et drone samlebånd ligesom ved biler. Ja at de har en drone der er 90% færdig og så først når ordren kommer ind, ja så sidder de snakker med kunden sim ok Iske sover med sin base i et eller andet hvor der er sindsyg meget vind når vi skal lige optimere i forhold til de ting og den anden kunde der siger jamen vi skal bare kunne levere express hurtigt.
+
+00;33;14;07 - 00;33;22;20
+Speaker 1
+Mere vigtig for os end nå om så tilpasse vi vælger, så har de i princippet 100 små løsninger. Men men grundprincippet er og det ville de heller ikke kunne.
+
+00;33;22;24 - 00;33;26;11
+Speaker 2
+Nej stykker bag her.
+
+00;33;26;13 - 00;33;34;10
+Speaker 1
+Det skulle vi måske blot.
+
+00;33;34;12 - 00;33;35;08
+Speaker 1
+Var det ikke nok til?
+
+00;33;35;08 - 00;33;40;22
+Speaker 2
+Træer er jo ren træ.
+
+00;33;40;25 - 00;33;46;16
+Speaker 2
+Fiber og så fint.
+
+00;33;46;18 - 00;33;56;12
+Speaker 2
+Der var det noget med. Fordi jeg gætter på de andre software starter med access og som du synes.
+
+00;33;56;12 - 00;33;57;11
+Speaker 1
+Er.
+
+00;33;57;13 - 00;34;18;03
+Speaker 2
+Ret kompliceret. Det er ikke noget man lige bare laver, og det er noget vi gerne vil er Det skal være nemt at forstå, når du har sat dig ind i systemet, og så kan du bare gå var lavet rundt og så bliver der nogle bedre end det andre laver og retur er så det skal være nemt at forstå.
+
+00;34;18;03 - 00;34;33;19
+Speaker 2
+Det var sådan i forhold til de løsninger der er simple, langt og godt om man vil. Formentlig var der stemmer man fik, gør det hele på nemmer forståelig måde. Har kæmpe kendskab til de kampe og til.
+
+00;34;33;22 - 00;34;34;19
+Speaker 3
+Til.
+
+00;34;34;22 - 00;34;37;23
+Speaker 2
+Flyvetiden som ikke går. Det hele skulle være nemt at forstå.
+
+00;34;37;25 - 00;34;38;25
+Speaker 1
+Er så.
+
+00;34;38;25 - 00;35;10;18
+Speaker 2
+De veje vil flyve sammen og gøre og gav så meget sig selv. Og er der lidt større betaling måske Og så vil du bare. Og så det skal være som vi skal op herfra. Problemet er så kun at de siger var problemet. Og så oversatte softwaren for det til at design, der ikke optimere oversat problemet. Det er en specifikation som så bliver til at design.
+
+00;35;10;20 - 00;35;23;06
+Speaker 2
+Der er så langsom. Ja, den er avanceret, men den er nem, intuitiv og nem at forstå. Før. Ja, som.
+
+00;35;23;08 - 00;35;45;19
+Speaker 1
+Mest bare tænker på. Jeg synes du fortalte os på et tidspunkt, at at det er forskellige. For det første er det så 5 forskellige grupper i web og der sidder nogen og skal design, nogle ingeniører alt muligt andet. Og så er der den anden gruppe som skal sidde og bygge og der er tit der ikke bliver snakket sammen og forståelse imellem hinanden.
+
+00;35;45;22 - 00;35;48;23
+Speaker 2
+Jeg har ikke haft en af de trin.
+
+00;35;48;23 - 00;36;01;23
+Speaker 1
+Jeg er præcis, Men jeg sidder og tænker på, om det er nogle andre typer virksomheder, så i princippet altså profiler man skal have i sin virksomhed?
+
+00;36;01;26 - 00;36;04;14
+Speaker 2
+Tænker du på kunderne, er der også.
+
+00;36;04;17 - 00;36;07;11
+Speaker 1
+Nej. Er vores kunder altså dem, som skal bruge systemet?
+
+00;36;07;11 - 00;36;28;15
+Speaker 2
+Er. Der i princippet bare. En teknisk person, der ligemeget om de er efter, ikke gælder for aerodynamik eller mekanik de skal kunne bruge hvor der er. Tilmed er der også en chef, en projektleder vi godt kunne bruge til.
+
+00;36;28;17 - 00;36;30;09
+Speaker 1
+Er.
+
+00;36;30;12 - 00;36;32;27
+Speaker 2
+Så ja.
+
+00;36;33;00 - 00;36;41;24
+Speaker 1
+Når jeg sidder bare lige og tænke ud af jeg.
+
+00;36;41;26 - 00;36;50;28
+Speaker 2
+Men det kan godt være der sker en. Run designer.
+
+00;36;51;00 - 00;37;20;11
+Speaker 1
+Jo jo, men det må komme ned ad vejen nu. Bare sådan lige, tænker jeg, der går bag om det. Også fordi du sagde de er ingeniører, som skal sidde og beregne alle de her ting, inden de overhovedet kommer nogen steder. De er ikke billige, og hvis de bruger et år eller mere på at sidde og lave nogle ting og vi kan spare den process op som var sat på 12 måneder ned til 1 måned og så videre, er det jo en vanvittig økonomisk besparelse.
+
+00;37;20;14 - 00;37;40;24
+Speaker 1
+Ja, og jeg synes oven i købet siger i stedet for at have tre af de ingeniør 200.000 i morgen, så skal kun bruge en fordi de to andre kan godt være nogle lidt andre typer som stadigvæk skal sidde inde i mit system. Så der både er noget med hvor hurtigt det går og det bliver mere præcist, men der også en besparelse.
+
+00;37;40;26 - 00;37;56;20
+Speaker 1
+Jeg få dem. Ja, det skal vi ikke snakke så meget om, fordi der ikke nogen der kan lide at man skal bruge færre ressourcer. Jo ledelsen kan, men ingeniøren kan ikke lide at høre han bliver.
+
+00;37;56;22 - 00;37;57;08
+Speaker 1
+Femmeren 3.
+
+00;37;57;11 - 00;38;09;08
+Speaker 2
+5 Ja, den er fin.
+
+00;38;09;11 - 00;38;16;11
+Speaker 1
+Vil lidt tilbage. Sidder med hvis vi gerne vil lave en certificering eller noget standard eller et eller.
+
+00;38;16;14 - 00;38;32;19
+Speaker 2
+Er. Det snart vil skal man lægge en. Der er brugt nogle gange penge, som er vundet mange priser for min forskning og.
+
+00;38;32;21 - 00;38;55;06
+Speaker 2
+Og til sidst sidste sætning. Den nye videnskab gjort tilgængelig som platform. Den der er ikke bygget ovenpå eksisterende simulator værktøj, men den er bygget på kendte teknikker, som har bevist til at fungere.
+
+00;38;55;08 - 00;38;58;00
+Speaker 1
+Så ja, du er vel i princippet lige.
+
+00;38;58;00 - 00;39;25;22
+Speaker 2
+Dig med en flot der er nyt, er man den også, men man har bevist at den er korrekt og der var det bare at få lavet en ny videnskab, hvor der kun sker Nogle tænker ret dog ikke på at formulere Det bygger på velkendte og accepterede videnskab og modeller. I tillæg til state of the art modeller, der er udviklet af Ja og mig der er.
+
+00;39;25;22 - 00;39;28;16
+Speaker 1
+Så vi skal ikke bruge ordet ny videnskab. Men, men.
+
+00;39;28;16 - 00;39;43;19
+Speaker 2
+Nej, det er måske mere udviklet på velkendt og accepteret videnskab. Jeg og vi har tillæg af the direkte. Jeg har modeller som ingen andre.
+
+00;39;43;21 - 00;39;45;23
+Speaker 1
+Men vi har stadigvæk gjort tilgængelig som.
+
+00;39;45;24 - 00;39;50;18
+Speaker 2
+Platform for ting som hvad der var dem, en videnskabsmand, der skal til.
+
+00;39;50;24 - 00;39;52;23
+Speaker 1
+Er man enig.
+
+00;39;52;25 - 00;40;07;08
+Speaker 2
+Mere end 6. Denne fine. Optimering af data førte jeres.
+
+00;40;07;11 - 00;40;12;18
+Speaker 2
+Jer.
+
+00;40;12;21 - 00;40;15;17
+Speaker 2
+Er Ja, de er alle fint.
+
+00;40;15;20 - 00;40;38;22
+Speaker 1
+Jeg kunne godt tænke mig og det skal vi gøre nu, men trin 6 her kunne jeg godt tænke mig, at vi to tager en specifik snak om på et senere tidspunkt og så nørder sådan lidt mere ned i og snakker mere specifikt på de enkelte dele og ikke en propel og så du bare når der hele igennem og så siger hvad er typisk?
+
+00;40;38;22 - 00;41;04;03
+Speaker 1
+Brug udfordring på den og hvad er det vi kan forbedre på den? Godt tyk batteri. Jeg mener very større batteri. Altså når du sådan helt ned i hver enkelt punkt, således at jeg kan pille det fra hinanden, så vi kan kan gøre et eller andet ved dem. Og det gør vi på et senere tidspunkt. 7 Såsom push.
+
+00;41;04;06 - 00;41;06;03
+Speaker 1
+Da vi kan ikke gøre så meget ved den lige nu.
+
+00;41;06;06 - 00;41;22;09
+Speaker 2
+Da der ikke kommer til at tabe ret talrige remote. Altså den er den er accepteret så sikkert er en standard teori og dermed kan stander til dagligt er bygget.
+
+00;41;22;12 - 00;41;59;21
+Speaker 1
+Ja men men men hele trin 7 Den skal udbygges f når vi får flere på og der er flere der kommer igennem din pik Research hvor vi får det ned og de rent faktisk bruger systemet på på version 1, eller hvor vi nu når hen til, så er det jo den der begynder og følge version 7. Jamen når vi kan begynde og navngive nogle kunder og nu har vi disse 3 5 på som bruger det, og de har tilsammen opnået denne her besparelse og deres udfordringer og de er lige lange i processen, så bliver det en helt anden ned man kan begynde at snakke med Og godt og så er der nogle de andre punkter
+
+00;41;59;21 - 00;42;08;18
+Speaker 1
+der der kommer senere, og så er det det folk vil høre. Og gæt hvad det så jeg gjorde dem som du sådan.
+
+00;42;08;21 - 00;42;17;08
+Speaker 2
+Otte er. Ja, den er.
+
+00;42;17;11 - 00;42;19;16
+Speaker 1
+1 Og med det.
+
+00;42;19;19 - 00;42;26;23
+Speaker 2
+Afstanden den optællingen der deres startende for dem og det her der det de andre grunde giver.
+
+00;42;26;26 - 00;42;28;02
+Speaker 1
+Er det første punkt med energi.
+
+00;42;28;08 - 00;42;49;09
+Speaker 2
+Ja budgettet er der kan gå ret i de forskellige typer energi bør og det hjælper jo med at sige og din page sammenligne med andre. Den vi bærer den er helt forfærdelig og bage den er utro er og så hvad de har igennem. Så er der færre vi skal fokusere på og kan vi give bare er som brikker pr rør.
+
+00;42;49;12 - 00;43;02;07
+Speaker 1
+Men men hvor meget skal de aflevere? Hvor meget skal de? Hvor meget skal du ind i? Kan du gøre det for dem der? Når du starter med at få noget data om den mad, du sidder og laver, de beregninger, så kan du lynhurtigt se om det er pr. Eller om det er i prototype.
+
+00;43;02;09 - 00;43;08;04
+Speaker 2
+Jeg godt kunne godt, men det kan være du de mennesker der gør det og der er.
+
+00;43;08;06 - 00;43;11;07
+Speaker 1
+Så allerede når du begynder at få det første data, så kan du godt se hvad retning.
+
+00;43;11;07 - 00;43;13;00
+Speaker 2
+Du måske.
+
+00;43;13;02 - 00;43;14;09
+Speaker 1
+Er. Det fedt.
+
+00;43;14;12 - 00;43;27;27
+Speaker 2
+Der er der stadig den gran at vise dig. Er der nogen der laver præcis det der og der? Før var der nogen der var tilbage, nu skal det også til her. Og sådan blev data og for.
+
+00;43;27;29 - 00;43;48;10
+Speaker 2
+Fedt! Og det var en virkelig nem matematisk model. For ja, det kan man jo ikke. Der er virkelig godt startpunkt og ok. Rammen og de kaldte mål B I bærer hvert de mål jeg var p Totalt er de og den består af de 3 dele. Og så skal man lave modeller som var inddelt i op og siger man.
+
+00;43;48;10 - 00;44;12;23
+Speaker 2
+Der er derfor ofte og der er for stor, den er for stor og så Mozambique og ser på den. Og så og ser på, der sker jo i den fortsatte i en i sig selv og du designer Ja, og så kommer der jo konkrete. Den er fin og.
+
+00;44;12;25 - 00;44;20;14
+Speaker 2
+Ja så kan man jo. Jeg tror virkelig meget og lige præcis der er.
+
+00;44;20;17 - 00;44;40;13
+Speaker 2
+Jeg laver 2 3 styks og så har vi liggende og så får jeg der og plot der gik igang og så lave det sammen. Så var det risen. Bare fordi data og der er det der der er grundlæggende ikke.
+
+00;44;40;15 - 00;44;43;28
+Speaker 1
+Altså de breve du sidder og laver til stammerne.
+
+00;44;44;00 - 00;44;58;05
+Speaker 2
+Beregninger skal jeg lave selv, er resistent og der laver man så tager output fra. Beregningerne er og så identificerer sig og så lave kamphandlinger og skriver en rapport agenda rapport.
+
+00;44;58;05 - 00;45;01;19
+Speaker 1
+Det kan vi få en eller anden model til at gøre baseret på. Når den først.
+
+00;45;01;19 - 00;45;03;16
+Speaker 2
+Har vi, så er der eksempler.
+
+00;45;03;18 - 00;45;05;25
+Speaker 1
+På, hvordan vi laver det op, og hvad den skal holde øje med.
+
+00;45;05;25 - 00;45;36;18
+Speaker 2
+Og her er der meget, der går igen. Der er lidt om at jeg har lidt sammen kundskab, lidt ekspert kundskab og kig på og tallene som skriver tekst der gør det til ikke så meget tekst og den er vel og og at finde fejl og når forslag og så det, så er vi der kan vi lave en rapport for rapport fra den indledende analyse, og det kan få en eller anden til lave.
+
+00;45;36;20 - 00;45;45;09
+Speaker 2
+Så vil jeg måske gå ind og læse gennemgang. Var helt sikker på det er korrekt man arbejdsmængden er jo.
+
+00;45;45;11 - 00;45;45;27
+Speaker 1
+Jamen på.
+
+00;45;45;27 - 00;45;50;24
+Speaker 2
+Sidste lang rapport til let på 5 sider og selv.
+
+00;45;50;26 - 00;46;21;12
+Speaker 1
+Vil det sige at. Hvis jeg tog bil og kørte til Odense og ramte ind i en helt ny drone virksomhed, som som allerede har naturligt ud at flyve, og som og jeg præsentere dem for vores løsning og så de siger bare så kan jeg princippet i den den pr. Den kan I få og så. Og give dem den rapport.
+
+00;46;21;15 - 00;46;36;10
+Speaker 1
+Jeg ved godt den har en værdi, men de får jo ikke løst noget bare ved at læse rapporten. Nej så så Det jeg sidder og tænker på er hvor hurtigt kan jeg generelt rapportere den? Og således nærmest når vi får den i hånden. Gratis at sige. Hvis du interesseret i at få løst den, så skal dog i systemet.
+
+00;46;36;13 - 00;47;04;02
+Speaker 2
+Så kan rapporten den tager et minut. Ændringer data til rapporten. Det kan man om, hvordan den så det man helst vil have det op og flyver rundt. Der. Og skal disse kunder en vej man har stjålet og det skal der tilbage. Man tager mig selv, så sætter sig lidt op og så den samme ringer til og ringer til og efter 4-5-6 forskellige steder.
+
+00;47;04;04 - 00;47;09;22
+Speaker 1
+Men men det data forstår så filmen eller når du måler det eller spørg, så får du loggen bagefter.
+
+00;47;09;22 - 00;47;33;21
+Speaker 2
+Ved skal være loggen for at bruge det her og prøver en masse ting og derefter kun fortælle hvad der passer mig Danmark. Det kan jo bare tager. Hvis vi får specielle forhold til nogen, skal vi lægge det ind og se hvad vi tror dronen laver. Men så skal vi har da situationer, som de måske ikke har på det niveau at som man ville have det sådan, fordi data er og man kan jo godt.
+
+00;47;33;23 - 00;47;55;23
+Speaker 2
+Tager de bare flytte lidt rundt, skal man prøve og tager dem der er der lige her for at finde de punkter som jeg gerne vil bruge, men så skal man et eller andet satte jeg mig stater. Så det nemmeste er hvis de laver en test og så får vi datteren og så gør vi rapporten. Den der længste og mest og sin at man skal ind og skal det.
+
+00;47;55;23 - 00;48;07;13
+Speaker 2
+Hans datter er alle fra et andet land til hvordan du nogle måske også godt og så bare baseret på dem. Beregn det der du skal det. Pernille gør sig på danskerne for.
+
+00;48;07;13 - 00;48;27;00
+Speaker 1
+Om dem også kom dem og kom lidt senere. Jeg Jeg sidder bare og tænker den der barriere se hvor mål, Hvor lynhurtig kan jeg få dem ind i vores system og give dem et hug, således at de siger Og vi laver fandme fedt! Ja og er jo den er. Kan jeg give dem et eller andet sukker inden de skal til at betale for det og.
+
+00;48;27;02 - 00;48;27;17
+Speaker 2
+Jeg bliver.
+
+00;48;27;20 - 00;48;28;18
+Speaker 1
+Også hele tiden den der.
+
+00;48;28;23 - 00;48;56;22
+Speaker 2
+Hvis vi for man kan jo godt, hvis der måske er gratis, og hvis de støtter til op, så skal man sige altså hvis de får tastatur, så er det at holde det værdi for os op. Ja, for vi får da starter og designe til rum vi den. Og så får jeg en gratis rapport. Men vi må godt bruge deres design og desktop til internal metadata.
+
+00;48;56;24 - 00;49;04;24
+Speaker 2
+Og så får de rapporten og for vores analyser, så kan vi også i nærheden af data. Så der skal vi lave.
+
+00;49;04;26 - 00;49;05;10
+Speaker 1
+Vi skal lave.
+
+00;49;05;11 - 00;49;24;01
+Speaker 2
+Alligevel er der måske bare Grethes datter, om der koster Rommedahl. Det er fint nok og lave den. Rapporten er jo så bare Skal du tage rapporter der laver det? Og så er der var der, at man ud om du.
+
+00;49;24;02 - 00;49;27;27
+Speaker 1
+Du skulle stadigvæk bruge tid på at beregne i hvert fald lige nu.
+
+00;49;27;29 - 00;49;32;12
+Speaker 2
+Ja, men hvis vi vil har tastatur vi en proposal. Forskellige marine.
+
+00;49;32;12 - 00;49;33;05
+Speaker 1
+Værdier.
+
+00;49;33;08 - 00;50;02;12
+Speaker 2
+Som viser at der er et bedre indeklima og så har vi en beregner og så tager jeg et minut. Hvorfor når der nu er sådan. Det koster os ikke så meget at lave den rapport, når nu der er fine hug for ikke at sige I skal lave det arbejde. Hvis der faktisk er der er ofte mere, så er der Per i man skal kigge på.
+
+00;50;02;14 - 00;50;14;03
+Speaker 2
+Og der betyr placering for propellerne og størrelsen og så videre. Og de er hvad skal vi sige. Vi tror ikke at forbedre den her med 20%.
+
+00;50;14;05 - 00;50;24;19
+Speaker 2
+Og det var så kan forbedres og det har noget med placering og størrelse på fotogallerier og gør og jeg synes vi.
+
+00;50;24;21 - 00;50;29;01
+Speaker 1
+Jager og bruger det jo heller ikke noget vi skal lægge os fast på nu. Det er det bare.
+
+00;50;29;04 - 00;50;55;27
+Speaker 2
+Den gule, det er når gamle mark ikke får det med det samme som der samme dag, så skal de nu ud og flyve før, for vi tastatur scanneren. Men så er der dem der, og så har vi de flyver endda og vi datter og moren og Lise. Der kommer en time hver. Så en der rapport at to minutter og så.
+
+00;50;55;29 - 00;51;12;17
+Speaker 1
+Ja, og det kan være det i den model vi bruger til at starte med med de første 10 kunder, og så begynder vi at have noget data, og så begynder vi også at have nogle kunder at kunne referere til og så er der ikke nogen, der får noget gratis. Og så nej, ja der. Nu håber jeg bare lige med selskabsskatten ligesom med det her.
+
+00;51;12;17 - 00;51;28;17
+Speaker 1
+Det selv da der var forskellige salgsmetoder. Den interne er med hvis jeg give dem noget sukker, så de bliver afhængige og gerne vil betale. Det er en ting, men man snakker lidt metaforisk ik med dem, men den anden del er jo at at du sætter en. Du så der en glasvæg op og så viser du alt det ved.
+
+00;51;28;18 - 00;51;45;05
+Speaker 1
+Men du står udenfor, hvis du gerne vil ligne skolegården og dig selv. Du kan godt se, hvad det er andre kan få ind, fordi du får kun historie på. Men vi har lyst her, fordi jeg siger, de har det problem, at de har de problem, så ligesom vi kan sidde og snakke om, hvad det er for systemer, men du kan ikke få lov til at smage på en flot model, og så vil den anden metode.
+
+00;51;45;07 - 00;52;04;06
+Speaker 2
+Og der hvor de på dette og de er Brøndby. De er også på det niveau med de vil have jeg skal kigge på. Det startede med at jeg skal kigge på designet og kigge på om de har lavet nogle fejl og lavet en analyse af design. For selv om der er et godt design, så dem er der en der bruger dem, da de var villig til at betale.
+
+00;52;04;09 - 00;52;05;00
+Speaker 2
+Ja.
+
+00;52;05;02 - 00;52;05;18
+Speaker 1
+Det er da de hvad.
+
+00;52;05;18 - 00;52;07;21
+Speaker 2
+Jeg er nu mellem de fem til døren.
+
+00;52;07;24 - 00;52;17;06
+Speaker 1
+Og derfor skal de også blive ved med at betale for og Brian. Men det kan godt ske, at nogen skal give den gratis, fordi vi også får noget ud af det. Det er det.
+
+00;52;17;09 - 00;52;19;02
+Speaker 2
+Jeg mener, er det andet.
+
+00;52;19;03 - 00;52;27;05
+Speaker 1
+Det er den helt almindelige byttehandel med det tidspunkt. Så slår vi den, siger vi Nej nu, du skal betale for den hjælp, der er. Det behøver ikke være østarbejderne.
+
